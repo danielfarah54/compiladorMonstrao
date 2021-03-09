@@ -16,12 +16,16 @@ public class Principal {
 
     public static void main(String args[]) {
         try {
+            //Leitura do arquivo de entrada
             CharStream cs = CharStreams.fromFileName(args[0]);
             RegrasLexicas lex = new RegrasLexicas(cs);
+     
             FileWriter myWriter = new FileWriter(args[1]);
 
             Token t = null;
+            //Enquanto existirem tokens
             while ((t = lex.nextToken()).getType() != Token.EOF) {
+                //Tratamento de erros
                 if(RegrasLexicas.VOCABULARY.getDisplayName(t.getType()).equals("COMENTARIO_NAO_FECHADO")){
                     myWriter.write("Linha "+(lex.getLine()-1)+": comentario nao fechado\n");
                     break;
@@ -34,6 +38,7 @@ public class Principal {
                     myWriter.write("Linha "+lex.getLine()+": "+t.getText()+" - simbolo nao identificado\n");
                     break;
                 }
+                //Escrita do token no arquivo
                 myWriter.write("<'" + t.getText() + "'," + RegrasLexicas.VOCABULARY.getDisplayName(t.getType()) + ">\n");
                 
             }
