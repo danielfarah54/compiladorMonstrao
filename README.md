@@ -19,16 +19,17 @@ léxico deve ler um programa-fonte e produzir uma lista de tokens identificados.
 * JDK > 1.8
 
 
-## Como compilar o Análisador Léxica(Pasta raiz do projeto):
+## Como compilar o Análisador Léxica (Pasta raiz do projeto):
 
 ```
 $ mvn compile
 ```
 
 
-## Como executar(Pasta raiz do projeto):
+## Como executar (Pasta raiz do projeto):
+
+[Executável](https://github.com/danielfarah54/compiladorMonstrao/blob/main/target/CompiladorAlguma-1.0-SNAPSHOT-jar-with-dependencies.jar)
 
 ```
 $ java -jar ./target/CompiladorAlguma-1.0-SNAPSHOT-jar-with-dependencies.jar ArquivoDeEntrada ArquivoDeSaida
 ```
-[Executável](https://github.com/danielfarah54/compiladorMonstrao/blob/main/target/CompiladorAlguma-1.0-SNAPSHOT-jar-with-dependencies.jar)
