@@ -31,4 +31,4 @@ $ mvn compile
 ```
 $ java -jar ./target/CompiladorAlguma-1.0-SNAPSHOT-jar-with-dependencies.jar ArquivoDeEntrada ArquivoDeSaida
 ```
-[Executável].(https://github.com/danielfarah54/compiladorMonstrao/blob/main/target/CompiladorAlguma-1.0-SNAPSHOT-jar-with-dependencies.jar)
+[Executável](https://github.com/danielfarah54/compiladorMonstrao/blob/main/target/CompiladorAlguma-1.0-SNAPSHOT-jar-with-dependencies.jar)
