@@ -8,7 +8,7 @@ O trabalho 1 (T1) da disciplina consiste em implementar um analisador léxico pa
 léxico deve ler um programa-fonte e produzir uma lista de tokens identificados.
 
 ## Integrantes
-- [Daniel Farah, ](https://github.com/)
+- [Daniel Farah, 417513](https://github.com/danielfarah54)
 - [Mateus Yassuo, ](https://github.com/yasuo-00)
 - [Mayk Bezerra, 727953](https://github.com/mayktu)
 
