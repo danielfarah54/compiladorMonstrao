@@ -26,20 +26,20 @@ public class Principal {
             //Enquanto existirem tokens
             while ((t = lex.nextToken()).getType() != Token.EOF) {
                 //Tratamento de erros
-                if(RegrasLexicas.VOCABULARY.getDisplayName(t.getType()).equals("COMENTARIO_NAO_FECHADO")){
-                    myWriter.write("Linha "+(lex.getLine()-1)+": comentario nao fechado\n");
+                if(RegrasLexicas.VOCABULARY.getDisplayName(t.getType()).equals('COMENTARIO_NAO_FECHADO')){
+                    myWriter.write('Linha '+(lex.getLine()-1)+': comentario nao fechado\n');
                     break;
                 }
-                if(RegrasLexicas.VOCABULARY.getDisplayName(t.getType()).equals("CADEIA_NAO_FECHADA")){
-                    myWriter.write("Linha "+(lex.getLine()-1) +": cadeia literal nao fechada\n");
+                if(RegrasLexicas.VOCABULARY.getDisplayName(t.getType()).equals('CADEIA_NAO_FECHADA')){
+                    myWriter.write('Linha '+(lex.getLine()-1) +': cadeia literal nao fechada\n');
                     break;
                 }
-                if(RegrasLexicas.VOCABULARY.getDisplayName(t.getType()).equals("ERRO")){
-                    myWriter.write("Linha "+lex.getLine()+": "+t.getText()+" - simbolo nao identificado\n");
+                if(RegrasLexicas.VOCABULARY.getDisplayName(t.getType()).equals('ERRO')){
+                    myWriter.write('Linha '+lex.getLine()+': '+t.getText()+' - simbolo nao identificado\n');
                     break;
                 }
                 //Escrita do token no arquivo
-                myWriter.write("<'" + t.getText() + "'," + RegrasLexicas.VOCABULARY.getDisplayName(t.getType()) + ">\n");
+                myWriter.write('<'' + t.getText() + '',' + RegrasLexicas.VOCABULARY.getDisplayName(t.getType()) + '>\n');
                 
             }
             myWriter.close();
