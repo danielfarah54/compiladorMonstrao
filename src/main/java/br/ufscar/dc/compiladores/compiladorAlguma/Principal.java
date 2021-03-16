@@ -52,6 +52,8 @@ public class Principal {
                 }
 
             }
+            //resetar os tokens para o inicio
+            lex.reset();
 
             parser.programa();
             pw.close();
