@@ -1,6 +1,5 @@
 grammar RegrasLexicas;
 
-
 ALGORITMO: 'algoritmo';
 DOCUMENTACAO_DO_ALGORITMO: 'documentação_do_algoritmo';
 DECLARE:'declare';
@@ -67,7 +66,6 @@ ENDERECO_DO_PONTEIRO: '&';
 IDENT : ('a'..'z'|'A'..'Z')('_'| 'a'..'z'|'A'..'Z'|'0'..'9')*;
 fragment ESC_SEQ: '\\\'';
 
-
 CADEIA_NAO_FECHADA: ('"' ( ESC_SEQ | ~('"'|'\n') )* '\n')| ('\'' ( ESC_SEQ | ~('\''|'\\'| '\n') )* '\n');
 
 COMENTARIO_NAO_FECHADO: '{'~('}'|'\n')*'\n';
@@ -79,7 +77,6 @@ WS  :   ( ' '
         ) {skip();};
 
 CADEIA: ('"' ( ESC_SEQ | ~('"'| '\n') )* '"')| ('\'' ( ESC_SEQ | ~('\''|'\\'| '\n') )* '\'');
-
 
 COMENTARIO:  '{'  ~('\n'|'}')*  '}' -> skip;
 
@@ -99,7 +96,6 @@ declaracao_local: 'declare' variavel
 declaracao_global: 'procedimento' IDENT '(' parametros? ')' (declaracao_local)* (cmd)* 'fim_procedimento'
                     | 'funcao' IDENT '(' parametros? ')' ':' tipo_estendido (declaracao_local)* (cmd)* 'fim_funcao';
 
-
 declaracoes: (decl_local_global)*;
 
 programa: declaracoes 'algoritmo' corpo 'fim_algoritmo';
@@ -112,15 +108,10 @@ parametros: parametro (',' parametro)*;
 
 variavel: identificador (',' identificador)* ':' tipo;
 
-
-
 valor_constante: CADEIA | NUM_INT | NUM_REAL | 'verdadeiro' | 'falso';
 registro: 'registro' (variavel)* 'fim_registro';
 
-
-
 corpo: (declaracao_local)* (cmd)*;
-
 
 cmdLeia: 'leia' '(' '^'? identificador (',' '^'? identificador)* ')';
 cmdEscreva: 'escreva' '(' expressao (',' expressao)* ')';
@@ -139,7 +130,6 @@ cmd: cmdLeia | cmdEscreva | cmdSe | cmdCaso | cmdPara | cmdEnquanto
     | cmdEscreva |cmdSe | cmdCaso | cmdPara | cmdEnquanto |cmdFaca
     | cmdAtribuicao | cmdChamada | cmdRetorne;
 
-
 item_selecao: constantes ':' (cmd)*;
 selecao: (item_selecao)*;
 
@@ -152,7 +142,6 @@ parcela_unario: '^'? identificador | IDENT '(' expressao (',' expressao)* ')'
         | '(' expressao ')';
 parcela_nao_unario: '&' identificador | CADEIA;
 parcela: op_unario? parcela_unario | parcela_nao_unario;
-
 
 fator: parcela (op3 parcela)*;
 termo: fator (op2 fator)*;
@@ -169,7 +158,6 @@ fator_logico: 'nao'? parcela_logica;
 termo_logico: fator_logico (op_logico_2 fator_logico)*;
 expressao: termo_logico (op_logico_1 termo_logico)*;
 parcela_logica: ( 'verdadeiro' | 'falso' ) | exp_relacional;
-
 
 op_logico_1: 'e';
 op_logico_2: 'ou';
