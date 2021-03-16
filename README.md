@@ -4,7 +4,7 @@
 
 ## Integrantes
 - [Daniel Farah, 417513](https://github.com/danielfarah54)
-- [Mateus Yassuo, ](https://github.com/yasuo-00)
+- [Mateus Yassuo, 746040](https://github.com/yasuo-00)
 - [Mayk Bezerra, 727953](https://github.com/mayktu)
 
 
