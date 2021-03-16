@@ -100,7 +100,7 @@ declaracao_global: 'procedimento' IDENT '(' parametros ? ')' (declaracao_local)*
 
 decl_local_global: declaracao_global | declaracao_local;
 declaracoes: (decl_local_global)*;
-programa: declaracoes 'algoritmo' corpo 'fim_algoritmo';
+programa: declaracoes 'algoritmo' corpo 'fim_algoritmo' EOF;
 
 dimensao: ('[' exp_aritmetica ']')*;
 identificador: IDENT ('.' IDENT)* dimensao;

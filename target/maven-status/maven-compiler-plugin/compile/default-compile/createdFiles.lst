@@ -31,6 +31,7 @@ br/ufscar/dc/compiladores/compiladorAlguma/RegrasLexicasParser$CorpoContext.clas
 br/ufscar/dc/compiladores/compiladorAlguma/RegrasLexicasParser$Fator_logicoContext.class
 br/ufscar/dc/compiladores/compiladorAlguma/RegrasLexicasParser$CmdFacaContext.class
 br/ufscar/dc/compiladores/compiladorAlguma/RegrasLexicasParser$ExpressaoContext.class
+br/ufscar/dc/compiladores/compiladorAlguma/Principal.class
 br/ufscar/dc/compiladores/compiladorAlguma/RegrasLexicasLexer.class
 br/ufscar/dc/compiladores/compiladorAlguma/RegrasLexicasParser$SelecaoContext.class
 br/ufscar/dc/compiladores/compiladorAlguma/RegrasLexicasParser$IdentificadorContext.class
@@ -50,5 +51,6 @@ br/ufscar/dc/compiladores/compiladorAlguma/RegrasLexicasParser$CmdChamadaContext
 br/ufscar/dc/compiladores/compiladorAlguma/RegrasLexicasParser$Termo_logicoContext.class
 br/ufscar/dc/compiladores/compiladorAlguma/RegrasLexicasParser$TermoContext.class
 br/ufscar/dc/compiladores/compiladorAlguma/RegrasLexicasParser$Tipo_basico_identContext.class
+br/ufscar/dc/compiladores/compiladorAlguma/CustomErrorListener.class
 br/ufscar/dc/compiladores/compiladorAlguma/RegrasLexicasParser$Item_selecaoContext.class
 br/ufscar/dc/compiladores/compiladorAlguma/RegrasLexicasParser$Parcela_logicaContext.class

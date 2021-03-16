@@ -5,50 +5,56 @@
  */
 package br.ufscar.dc.compiladores.compiladorAlguma;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.Token;
 
-
 public class Principal {
 
     public static void main(String args[]) {
-        try {
+        try (PrintWriter pw = new PrintWriter(new File(args[1]))) {
+
             //Leitura do arquivo de entrada
             CharStream cs = CharStreams.fromFileName(args[0]);
             RegrasLexicasLexer lex = new RegrasLexicasLexer(cs);
             CommonTokenStream tokens = new CommonTokenStream(lex);
             RegrasLexicasParser parser = new RegrasLexicasParser(tokens);
-       
-            
-            FileWriter myWriter = new FileWriter(args[1]);
+
+            CustomErrorListener mcel = new CustomErrorListener(pw);
+            parser.addErrorListener(mcel);
 
             Token t = null;
             //Enquanto existirem tokens
             while ((t = lex.nextToken()).getType() != Token.EOF) {
                 //Tratamento de erros
-                if(RegrasLexicasLexer.VOCABULARY.getDisplayName(t.getType()).equals("COMENTARIO_NAO_FECHADO")){
-                    myWriter.write("Linha "+(lex.getLine()-1)+": comentario nao fechado\n");
-                    break;
+                if (RegrasLexicasLexer.VOCABULARY.getDisplayName(t.getType()).equals("COMENTARIO_NAO_FECHADO")) {
+                    pw.println("Linha " + (lex.getLine() - 1) + ": comentario nao fechado");
+                    pw.println("Fim da compilacao");
+                    pw.close();
+                    return;
                 }
-                if(RegrasLexicasLexer.VOCABULARY.getDisplayName(t.getType()).equals("CADEIA_NAO_FECHADA")){
-                    myWriter.write("Linha "+(lex.getLine()-1) +": cadeia literal nao fechada\n");
-                    break;
+                if (RegrasLexicasLexer.VOCABULARY.getDisplayName(t.getType()).equals("CADEIA_NAO_FECHADA")) {
+                    pw.println("Linha " + (lex.getLine() - 1) + ": cadeia literal nao fechada");
+                    pw.println("Fim da compilacao");
+                    pw.close();
+                    return;
                 }
-                if(RegrasLexicasLexer.VOCABULARY.getDisplayName(t.getType()).equals("ERRO")){
-                    myWriter.write("Linha "+lex.getLine()+": "+t.getText()+" - simbolo nao identificado\n");
-                    break;
+                if (RegrasLexicasLexer.VOCABULARY.getDisplayName(t.getType()).equals("ERRO")) {
+                    pw.println("Linha " + lex.getLine() + ": " + t.getText() + " - simbolo nao identificado");
+                    pw.println("Fim da compilacao");
+                    pw.close();
+                    return;
                 }
-                //Escrita do token no arquivo
-                myWriter.write("<'" + t.getText() + "," + RegrasLexicasLexer.VOCABULARY.getDisplayName(t.getType()) + ">\n");
-                
+
             }
-            
+
             parser.programa();
-            myWriter.close();
+            pw.close();
 
         } catch (IOException ex) {
         }
