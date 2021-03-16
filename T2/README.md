@@ -21,5 +21,5 @@ $ mvn compile
 ### Como executar(Pasta raiz do projeto):
 
 ```
-$ 
+$ java -jar ./target/CompiladorAlguma-1.0-SNAPSHOT-jar-with-dependencies.jar ArquivoDeEntrada ArquivoDeSaida
 ```
