@@ -20,14 +20,14 @@ léxico deve ler um programa-fonte e produzir uma lista de tokens identificados.
 * JDK > 1.8
 
 
-### Como compilar o Análisador Léxica(Pasta raiz do projeto):
+### Como compilar o Análisador Léxica (Pasta raiz do projeto):
 
 ```
 $ mvn compile
 ```
 
 
-### Como executar(Pasta raiz do projeto):
+### Como executar (Pasta raiz do projeto):
 
 [Executável](https://github.com/yasuo-00/compiladorMonstrao/blob/main/T1/target/CompiladorAlguma-1.0-SNAPSHOT-jar-with-dependencies.jar)
 
@@ -48,14 +48,14 @@ lexema que causou a detecção do erro.
 * JDK > 1.8
 
 
-### Como compilar o Análisador Léxica(Pasta raiz do projeto):
+### Como compilar o Análisador Léxica (Pasta raiz do projeto):
 
 ```
 $ mvn compile
 ```
 
 
-### Como executar(Pasta raiz do projeto):
+### Como executar (Pasta raiz do projeto):
 
 [Executável](https://github.com/yasuo-00/compiladorMonstrao/blob/main/T2/target/CompiladorAlguma-1.0-SNAPSHOT-jar-with-dependencies.jar)
 
