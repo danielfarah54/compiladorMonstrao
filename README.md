@@ -9,7 +9,7 @@
 
 
 ## Trabalho 1 - Análise Léxica
-O trabalho 1 (T1) da disciplina consiste em implementar um analisador léxico para a linguagem LA
+O trabalho 1 (T1) da disciplina consiste em implementar um analisador léxico para a [linguagem LA](https://github.com/yasuo-00/compiladorMonstrao/blob/main/Gramatica_LA.pdf)
 (Linguagem Algorítmica) desenvolvida pelo prof. Jander, no âmbito do DC/UFSCar. O analisador
 léxico deve ler um programa-fonte e produzir uma lista de tokens identificados.
 
@@ -36,7 +36,7 @@ $ java -jar ./target/CompiladorAlguma-1.0-SNAPSHOT-jar-with-dependencies.jar Arq
 ```
 
 ## Trabalho 2 - Análise Sintática
-O trabalho 2 (T2) da disciplina consiste em implementar um analisador sintático para a linguagem LA
+O trabalho 2 (T2) da disciplina consiste em implementar um analisador sintático para a [linguagem LA](https://github.com/yasuo-00/compiladorMonstrao/blob/main/Gramatica_LA.pdf)
 (Linguagem Algorítmica) desenvolvida pelo prof. Jander, no âmbito do DC/UFSCar. O analisador
 sintático deve ler um programa-fonte e apontar onde existe erro sintático, indicando a linha e o
 lexema que causou a detecção do erro.
