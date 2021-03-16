@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.ufscar.dc.compiladores.compiladorAlguma;
 
 import java.io.PrintWriter;
@@ -41,19 +36,23 @@ public class CustomErrorListener implements ANTLRErrorListener {
 
     @Override
     public void syntaxError(Recognizer<?, ?> recognizer, Object offendingSymbol, int line, int charPositionInLine, String msg, RecognitionException e) {
+        
         // Aqui vamos colocar o tratamento de erro customizado
-
+        // t recebe o primeiro símbolo após a detecção do erro
         Token t = (Token) offendingSymbol;
 
+        // Tratando o erro de fim de arquivo
         if (t.getText().equals("<EOF>")) {
             pw.println("Linha " + line + ": erro sintatico proximo a EOF");
             pw.println("Fim da compilacao");
-            
-            
-        } else {
-
+        }
+        
+        // Para outros tipos de erro:
+        else {
             pw.println("Linha " + line + ": erro sintatico proximo a " + t.getText());
             pw.println("Fim da compilacao");
+            
+            // Fechar o writer para parar a execução
             pw.close();
         }
     }
