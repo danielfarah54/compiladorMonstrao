@@ -1,4 +1,4 @@
-package br.ufscar.dc.compiladores.alguma.semantico;
+package br.ufscar.dc.compiladores.compiladorAlguma;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,48 +18,48 @@ public class AlgumaSemanticoUtils {
         errosSemanticos.add(String.format("Erro %d:%d - %s", linha, coluna, mensagem));
     }
     
-    public static TabelaDeSimbolos.TipoAlguma verificarTipo(TabelaDeSimbolos tabela, RegrasParse.expressaoContext ctx) {
-        TabelaDeSimbolos.TipoAlguma ret = null;
+    public static TabelaDeSimbolos.TipoLA verificarTipo(TabelaDeSimbolos tabela, RegrasParse.expressaoContext ctx) {
+        TabelaDeSimbolos.TipoLA ret = null;
         for (var ta : ctx.termo_logico()) {
-            TabelaDeSimbolos.TipoAlguma aux = verificarTipo(tabela, ta);
+            TabelaDeSimbolos.TipoLA aux = verificarTipo(tabela, ta);
             if (ret == null) {
                 ret = aux;
-            } else if (ret != aux && aux != TabelaDeSimbolos.TipoAlguma.INVALIDO) {
+            } else if (ret != aux && aux != TabelaDeSimbolos.TipoLA.INVALIDO) {
                 adicionarErroSemantico(ctx.start, "Expressão " + ctx.getText() + " contém tipos incompatíveis");
-                ret = TabelaDeSimbolos.TipoAlguma.INVALIDO;
+                ret = TabelaDeSimbolos.TipoLA.INVALIDO;
             }
         }
 
         return ret;
     }
 
-    public static TabelaDeSimbolos.TipoAlguma verificarTipo(TabelaDeSimbolos tabela, RegrasParse.termo_logicoContext ctx) {
-        TabelaDeSimbolos.TipoAlguma ret = null;
+    public static TabelaDeSimbolos.TipoLA verificarTipo(TabelaDeSimbolos tabela, RegrasParse.termo_logicoContext ctx) {
+        TabelaDeSimbolos.TipoLA ret = null;
 
         for (var fa : ctx.fator_logico()) {
-            TabelaDeSimbolos.TipoAlguma aux = verificarTipo(tabela, fa);
+            TabelaDeSimbolos.TipoLA aux = verificarTipo(tabela, fa);
             if (ret == null) {
                 ret = aux;
-            } else if (ret != aux && aux != TabelaDeSimbolos.TipoAlguma.INVALIDO) {
+            } else if (ret != aux && aux != TabelaDeSimbolos.TipoLA.INVALIDO) {
                 adicionarErroSemantico(ctx.start, "Termo " + ctx.getText() + " contém tipos incompatíveis");
-                ret = TabelaDeSimbolos.TipoAlguma.INVALIDO;
+                ret = TabelaDeSimbolos.TipoLA.INVALIDO;
             }
         }
         return ret;
     }
 
-    public static TabelaDeSimbolos.TipoAlguma verificarTipo(TabelaDeSimbolos tabela, RegrasParse.fator_logicoContext ctx) {
+    public static TabelaDeSimbolos.TipoLA verificarTipo(TabelaDeSimbolos tabela, RegrasParse.fator_logicoContext ctx) {
         if (ctx.NUM_INT() != null) {
-            return TabelaDeSimbolos.TipoAlguma.INTEIRO;
+            return TabelaDeSimbolos.TipoLA.INTEIRO;
         }
         if (ctx.NUM_REAL() != null) {
-            return TabelaDeSimbolos.TipoAlguma.REAL;
+            return TabelaDeSimbolos.TipoLA.REAL;
         }
         if (ctx.IDENT() != null) {
             String nomeVar = ctx.IDENT().getText();
             if (!tabela.existe(nomeVar)) {
                 adicionarErroSemantico(ctx.IDENT().getSymbol(), "Variável " + nomeVar + " não foi declarada antes do uso");
-                return TabelaDeSimbolos.TipoAlguma.INVALIDO;
+                return TabelaDeSimbolos.TipoLA.INVALIDO;
             }
             return verificarTipo(tabela, nomeVar);
         }
@@ -68,7 +68,7 @@ public class AlgumaSemanticoUtils {
         return verificarTipo(tabela, ctx.expressao());
     }
     
-    public static TabelaDeSimbolos.TipoAlguma verificarTipo(TabelaDeSimbolos tabela, String nomeVar) {
+    public static TabelaDeSimbolos.TipoLA verificarTipo(TabelaDeSimbolos tabela, String nomeVar) {
         return tabela.verificar(nomeVar);
     }
 }
