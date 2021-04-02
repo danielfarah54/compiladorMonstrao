@@ -108,22 +108,22 @@ parametros: parametro (',' parametro)*;
 
 variavel: identificador (',' identificador)* ':' tipo;
 
-valor_constante: CADEIA | NUM_INT | NUM_REAL | 'verdadeiro' | 'falso';
+valor_constante: CADEIA | NUM_INT | NUM_REAL | VERDADEIRO | FALSO;
 registro: 'registro' (variavel)* 'fim_registro';
 
 corpo: (declaracao_local)* (cmd)*;
 
-cmdLeia: 'leia' '(' PONTEIRO? identificador (',' PONTEIRO? identificador)* ')';
-cmdEscreva: 'escreva' '(' expressao (',' expressao)* ')';
-cmdSe: 'se' expressao 'entao' (cmd)* ('senao' (cmd)*)? 'fim_se';
+cmdLeia: LEIA '(' PONTEIRO? identificador (',' PONTEIRO? identificador)* ')';
+cmdEscreva: ESCREVA '(' expressao (',' expressao)* ')';
+cmdSe: SE expressao ENTAO (cmd)* ( SENAO (cmd)*)? FIM_SE;
 
-cmdCaso : 'caso' exp_aritmetica 'seja' selecao ('senao' (cmd)* )?  'fim_caso';
-cmdPara: 'para' IDENT '<-' exp_aritmetica 'ate' exp_aritmetica 'faca' (cmd)* 'fim_para';
-cmdEnquanto: 'enquanto' expressao 'faca' (cmd)* 'fim_enquanto';
-cmdFaca: 'faca' (cmd)* 'ate' expressao;
+cmdCaso : CASO exp_aritmetica SEJA selecao (SENAO (cmd)* )?  FIM_CASO;
+cmdPara: PARA IDENT '<-' exp_aritmetica ATE exp_aritmetica FACA (cmd)* FIM_PARA;
+cmdEnquanto: ENQUANTO expressao FACA (cmd)* FIM_ENQUANTO;
+cmdFaca: FACA (cmd)* ATE expressao;
 cmdAtribuicao: PONTEIRO? identificador '<-' expressao;
 cmdChamada: IDENT '(' expressao (',' expressao)* ')';
-cmdRetorne: 'retorne' expressao;
+cmdRetorne: RETORNE expressao;
 
 cmd: cmdLeia | cmdEscreva | cmdSe | cmdCaso | cmdPara | cmdEnquanto
     | cmdFaca | cmdAtribuicao | cmdChamada | cmdRetorne | cmdLeia
@@ -157,7 +157,7 @@ exp_relacional: exp_aritmetica (op_relacional exp_aritmetica)?;
 fator_logico: NEGACAO? parcela_logica;
 termo_logico: fator_logico (op_logico_2 fator_logico)*;
 expressao: termo_logico (op_logico_1 termo_logico)*;
-parcela_logica: ( 'verdadeiro' | 'falso' ) | exp_relacional;
+parcela_logica: ( VERDADEIRO | FALSO ) | exp_relacional;
 
 op_logico_1: 'e';
 op_logico_2: 'ou';
