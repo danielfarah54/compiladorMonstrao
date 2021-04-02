@@ -58,7 +58,7 @@ public class AlgumaSemanticoUtils {
         if (ctx.IDENT() != null) {
             String nomeVar = ctx.IDENT().getText();
             if (!tabela.existe(nomeVar)) {
-                adicionarErroSemantico(ctx.IDENT().getSymbol(), "Variável " + nomeVar + " não foi declarada antes do uso");
+                adicionarErroSemantico(ctx.IDENT().getSymbol(), "identificador " + nomeVar + " nao declarado");
                 return TabelaDeSimbolos.TipoLA.INVALIDO;
             }
             return verificarTipo(tabela, nomeVar);
