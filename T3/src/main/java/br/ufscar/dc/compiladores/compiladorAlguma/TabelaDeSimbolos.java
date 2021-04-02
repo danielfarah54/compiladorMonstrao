@@ -15,7 +15,8 @@ public class TabelaDeSimbolos {
         INTEIRO,
         REAL,
         LITERAL,
-        LOGICO
+        LOGICO,
+        INVALIDO
     }
     
     
