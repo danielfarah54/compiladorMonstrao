@@ -8,45 +8,25 @@ import org.antlr.v4.runtime.tree.ParseTreeListener;
  */
 public interface RegrasListener extends ParseTreeListener {
 	/**
-	 * Enter a parse tree produced by {@link RegrasParser#tipo_basico}.
+	 * Enter a parse tree produced by {@link RegrasParser#programa}.
 	 * @param ctx the parse tree
 	 */
-	void enterTipo_basico(RegrasParser.Tipo_basicoContext ctx);
+	void enterPrograma(RegrasParser.ProgramaContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link RegrasParser#tipo_basico}.
+	 * Exit a parse tree produced by {@link RegrasParser#programa}.
 	 * @param ctx the parse tree
 	 */
-	void exitTipo_basico(RegrasParser.Tipo_basicoContext ctx);
+	void exitPrograma(RegrasParser.ProgramaContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link RegrasParser#tipo_basico_ident}.
+	 * Enter a parse tree produced by {@link RegrasParser#declaracoes}.
 	 * @param ctx the parse tree
 	 */
-	void enterTipo_basico_ident(RegrasParser.Tipo_basico_identContext ctx);
+	void enterDeclaracoes(RegrasParser.DeclaracoesContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link RegrasParser#tipo_basico_ident}.
+	 * Exit a parse tree produced by {@link RegrasParser#declaracoes}.
 	 * @param ctx the parse tree
 	 */
-	void exitTipo_basico_ident(RegrasParser.Tipo_basico_identContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link RegrasParser#tipo_estendido}.
-	 * @param ctx the parse tree
-	 */
-	void enterTipo_estendido(RegrasParser.Tipo_estendidoContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link RegrasParser#tipo_estendido}.
-	 * @param ctx the parse tree
-	 */
-	void exitTipo_estendido(RegrasParser.Tipo_estendidoContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link RegrasParser#tipo}.
-	 * @param ctx the parse tree
-	 */
-	void enterTipo(RegrasParser.TipoContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link RegrasParser#tipo}.
-	 * @param ctx the parse tree
-	 */
-	void exitTipo(RegrasParser.TipoContext ctx);
+	void exitDeclaracoes(RegrasParser.DeclaracoesContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link RegrasParser#decl_local_global}.
 	 * @param ctx the parse tree
@@ -78,25 +58,15 @@ public interface RegrasListener extends ParseTreeListener {
 	 */
 	void exitDeclaracao_global(RegrasParser.Declaracao_globalContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link RegrasParser#declaracoes}.
+	 * Enter a parse tree produced by {@link RegrasParser#identificador}.
 	 * @param ctx the parse tree
 	 */
-	void enterDeclaracoes(RegrasParser.DeclaracoesContext ctx);
+	void enterIdentificador(RegrasParser.IdentificadorContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link RegrasParser#declaracoes}.
+	 * Exit a parse tree produced by {@link RegrasParser#identificador}.
 	 * @param ctx the parse tree
 	 */
-	void exitDeclaracoes(RegrasParser.DeclaracoesContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link RegrasParser#programa}.
-	 * @param ctx the parse tree
-	 */
-	void enterPrograma(RegrasParser.ProgramaContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link RegrasParser#programa}.
-	 * @param ctx the parse tree
-	 */
-	void exitPrograma(RegrasParser.ProgramaContext ctx);
+	void exitIdentificador(RegrasParser.IdentificadorContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link RegrasParser#dimensao}.
 	 * @param ctx the parse tree
@@ -108,15 +78,55 @@ public interface RegrasListener extends ParseTreeListener {
 	 */
 	void exitDimensao(RegrasParser.DimensaoContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link RegrasParser#identificador}.
+	 * Enter a parse tree produced by {@link RegrasParser#tipo}.
 	 * @param ctx the parse tree
 	 */
-	void enterIdentificador(RegrasParser.IdentificadorContext ctx);
+	void enterTipo(RegrasParser.TipoContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link RegrasParser#identificador}.
+	 * Exit a parse tree produced by {@link RegrasParser#tipo}.
 	 * @param ctx the parse tree
 	 */
-	void exitIdentificador(RegrasParser.IdentificadorContext ctx);
+	void exitTipo(RegrasParser.TipoContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link RegrasParser#tipo_basico}.
+	 * @param ctx the parse tree
+	 */
+	void enterTipo_basico(RegrasParser.Tipo_basicoContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RegrasParser#tipo_basico}.
+	 * @param ctx the parse tree
+	 */
+	void exitTipo_basico(RegrasParser.Tipo_basicoContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link RegrasParser#tipo_basico_ident}.
+	 * @param ctx the parse tree
+	 */
+	void enterTipo_basico_ident(RegrasParser.Tipo_basico_identContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RegrasParser#tipo_basico_ident}.
+	 * @param ctx the parse tree
+	 */
+	void exitTipo_basico_ident(RegrasParser.Tipo_basico_identContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link RegrasParser#tipo_estendido}.
+	 * @param ctx the parse tree
+	 */
+	void enterTipo_estendido(RegrasParser.Tipo_estendidoContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RegrasParser#tipo_estendido}.
+	 * @param ctx the parse tree
+	 */
+	void exitTipo_estendido(RegrasParser.Tipo_estendidoContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link RegrasParser#valor_constante}.
+	 * @param ctx the parse tree
+	 */
+	void enterValor_constante(RegrasParser.Valor_constanteContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RegrasParser#valor_constante}.
+	 * @param ctx the parse tree
+	 */
+	void exitValor_constante(RegrasParser.Valor_constanteContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link RegrasParser#parametro}.
 	 * @param ctx the parse tree
@@ -138,26 +148,6 @@ public interface RegrasListener extends ParseTreeListener {
 	 */
 	void exitParametros(RegrasParser.ParametrosContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link RegrasParser#variavel}.
-	 * @param ctx the parse tree
-	 */
-	void enterVariavel(RegrasParser.VariavelContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link RegrasParser#variavel}.
-	 * @param ctx the parse tree
-	 */
-	void exitVariavel(RegrasParser.VariavelContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link RegrasParser#valor_constante}.
-	 * @param ctx the parse tree
-	 */
-	void enterValor_constante(RegrasParser.Valor_constanteContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link RegrasParser#valor_constante}.
-	 * @param ctx the parse tree
-	 */
-	void exitValor_constante(RegrasParser.Valor_constanteContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link RegrasParser#registro}.
 	 * @param ctx the parse tree
 	 */
@@ -168,6 +158,16 @@ public interface RegrasListener extends ParseTreeListener {
 	 */
 	void exitRegistro(RegrasParser.RegistroContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link RegrasParser#variavel}.
+	 * @param ctx the parse tree
+	 */
+	void enterVariavel(RegrasParser.VariavelContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RegrasParser#variavel}.
+	 * @param ctx the parse tree
+	 */
+	void exitVariavel(RegrasParser.VariavelContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link RegrasParser#corpo}.
 	 * @param ctx the parse tree
 	 */
@@ -177,6 +177,16 @@ public interface RegrasListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitCorpo(RegrasParser.CorpoContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link RegrasParser#cmd}.
+	 * @param ctx the parse tree
+	 */
+	void enterCmd(RegrasParser.CmdContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RegrasParser#cmd}.
+	 * @param ctx the parse tree
+	 */
+	void exitCmd(RegrasParser.CmdContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link RegrasParser#cmdLeia}.
 	 * @param ctx the parse tree
@@ -278,16 +288,6 @@ public interface RegrasListener extends ParseTreeListener {
 	 */
 	void exitCmdRetorne(RegrasParser.CmdRetorneContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link RegrasParser#cmd}.
-	 * @param ctx the parse tree
-	 */
-	void enterCmd(RegrasParser.CmdContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link RegrasParser#cmd}.
-	 * @param ctx the parse tree
-	 */
-	void exitCmd(RegrasParser.CmdContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link RegrasParser#item_selecao}.
 	 * @param ctx the parse tree
 	 */
@@ -338,6 +338,46 @@ public interface RegrasListener extends ParseTreeListener {
 	 */
 	void exitConstantes(RegrasParser.ConstantesContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link RegrasParser#exp_aritmetica}.
+	 * @param ctx the parse tree
+	 */
+	void enterExp_aritmetica(RegrasParser.Exp_aritmeticaContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RegrasParser#exp_aritmetica}.
+	 * @param ctx the parse tree
+	 */
+	void exitExp_aritmetica(RegrasParser.Exp_aritmeticaContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link RegrasParser#termo}.
+	 * @param ctx the parse tree
+	 */
+	void enterTermo(RegrasParser.TermoContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RegrasParser#termo}.
+	 * @param ctx the parse tree
+	 */
+	void exitTermo(RegrasParser.TermoContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link RegrasParser#fator}.
+	 * @param ctx the parse tree
+	 */
+	void enterFator(RegrasParser.FatorContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RegrasParser#fator}.
+	 * @param ctx the parse tree
+	 */
+	void exitFator(RegrasParser.FatorContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link RegrasParser#parcela}.
+	 * @param ctx the parse tree
+	 */
+	void enterParcela(RegrasParser.ParcelaContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RegrasParser#parcela}.
+	 * @param ctx the parse tree
+	 */
+	void exitParcela(RegrasParser.ParcelaContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link RegrasParser#parcela_unario}.
 	 * @param ctx the parse tree
 	 */
@@ -357,46 +397,6 @@ public interface RegrasListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitParcela_nao_unario(RegrasParser.Parcela_nao_unarioContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link RegrasParser#parcela}.
-	 * @param ctx the parse tree
-	 */
-	void enterParcela(RegrasParser.ParcelaContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link RegrasParser#parcela}.
-	 * @param ctx the parse tree
-	 */
-	void exitParcela(RegrasParser.ParcelaContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link RegrasParser#fator}.
-	 * @param ctx the parse tree
-	 */
-	void enterFator(RegrasParser.FatorContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link RegrasParser#fator}.
-	 * @param ctx the parse tree
-	 */
-	void exitFator(RegrasParser.FatorContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link RegrasParser#termo}.
-	 * @param ctx the parse tree
-	 */
-	void enterTermo(RegrasParser.TermoContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link RegrasParser#termo}.
-	 * @param ctx the parse tree
-	 */
-	void exitTermo(RegrasParser.TermoContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link RegrasParser#exp_aritmetica}.
-	 * @param ctx the parse tree
-	 */
-	void enterExp_aritmetica(RegrasParser.Exp_aritmeticaContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link RegrasParser#exp_aritmetica}.
-	 * @param ctx the parse tree
-	 */
-	void exitExp_aritmetica(RegrasParser.Exp_aritmeticaContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link RegrasParser#op1}.
 	 * @param ctx the parse tree
@@ -448,15 +448,15 @@ public interface RegrasListener extends ParseTreeListener {
 	 */
 	void exitExp_relacional(RegrasParser.Exp_relacionalContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link RegrasParser#fator_logico}.
+	 * Enter a parse tree produced by {@link RegrasParser#expressao}.
 	 * @param ctx the parse tree
 	 */
-	void enterFator_logico(RegrasParser.Fator_logicoContext ctx);
+	void enterExpressao(RegrasParser.ExpressaoContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link RegrasParser#fator_logico}.
+	 * Exit a parse tree produced by {@link RegrasParser#expressao}.
 	 * @param ctx the parse tree
 	 */
-	void exitFator_logico(RegrasParser.Fator_logicoContext ctx);
+	void exitExpressao(RegrasParser.ExpressaoContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link RegrasParser#termo_logico}.
 	 * @param ctx the parse tree
@@ -468,15 +468,15 @@ public interface RegrasListener extends ParseTreeListener {
 	 */
 	void exitTermo_logico(RegrasParser.Termo_logicoContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link RegrasParser#expressao}.
+	 * Enter a parse tree produced by {@link RegrasParser#fator_logico}.
 	 * @param ctx the parse tree
 	 */
-	void enterExpressao(RegrasParser.ExpressaoContext ctx);
+	void enterFator_logico(RegrasParser.Fator_logicoContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link RegrasParser#expressao}.
+	 * Exit a parse tree produced by {@link RegrasParser#fator_logico}.
 	 * @param ctx the parse tree
 	 */
-	void exitExpressao(RegrasParser.ExpressaoContext ctx);
+	void exitFator_logico(RegrasParser.Fator_logicoContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link RegrasParser#parcela_logica}.
 	 * @param ctx the parse tree

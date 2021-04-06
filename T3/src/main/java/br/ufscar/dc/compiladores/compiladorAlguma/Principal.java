@@ -21,49 +21,30 @@ public class Principal {
             RegrasLexer lex = new RegrasLexer(cs);
             CommonTokenStream tokens = new CommonTokenStream(lex);
             RegrasParser parser = new RegrasParser(tokens);
-
-            // Criação de um listener para o parser, para customização das mensagens de erro
-            CustomErrorListener mcel = new CustomErrorListener(pw);
-            parser.removeErrorListeners();
-            parser.addErrorListener(mcel);
-
-            Token t = null;
+            RegrasParser.ProgramaContext arvore = parser.programa();
+            Calculador calc = new Calculador();
+            calc.visitPrograma(arvore);
+           
             
-            // Enquanto existirem tokens
-            while ((t = lex.nextToken()).getType() != Token.EOF) {
-                
-                // TRATAMENTO DOS ERROS LÉXICOS:
-                
-                // Comentário não fechado
-                if (RegrasLexer.VOCABULARY.getDisplayName(t.getType()).equals("COMENTARIO_NAO_FECHADO")) {
-                    pw.println("Linha " + (lex.getLine() - 1) + ": comentario nao fechado");
+            if(LASemanticoUtils.errosSemanticos.isEmpty()){
 
-                }
-                
-                // Cadeia não fechada
-                if (RegrasLexer.VOCABULARY.getDisplayName(t.getType()).equals("CADEIA_NAO_FECHADA")) {
-                    pw.println("Linha " + (lex.getLine() - 1) + ": cadeia literal nao fechada");
+                LAGeradorC aux = new LAGeradorC();
+                aux.visitPrograma(arvore);
+                pw.print(aux.saida.toString());
 
-                }
-                
-                // Símbolo não identificado
-                if (RegrasLexer.VOCABULARY.getDisplayName(t.getType()).equals("ERRO")) {
-                    pw.println("Linha " + lex.getLine() + ": " + t.getText() + " - simbolo nao identificado");
-
-                }
+            }else{
+                 for(String erros : LASemanticoUtils.errosSemanticos){
+                    pw.println(erros);
+                    
+                 }
+                 pw.println("Fim da compilacao");
             }
-            
-            // TRATAMENTO DOS ERROS SINTÁTICOS:
-            
-            // Resetar os tokens para fazer uma nova varredura do inicio
-            lex.reset();
 
-            // Inicia o analisador sintático
-            parser.programa();
             pw.close();
 
         } catch (IOException ex) {
             // Em caso de alguma exceção, apenas ignora
+            System.out.println("erro no arquivo");
         }
     }
 }
