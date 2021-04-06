@@ -16,49 +16,25 @@ public class RegrasBaseListener implements RegrasListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterTipo_basico(RegrasParser.Tipo_basicoContext ctx) { }
+	@Override public void enterPrograma(RegrasParser.ProgramaContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitTipo_basico(RegrasParser.Tipo_basicoContext ctx) { }
+	@Override public void exitPrograma(RegrasParser.ProgramaContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterTipo_basico_ident(RegrasParser.Tipo_basico_identContext ctx) { }
+	@Override public void enterDeclaracoes(RegrasParser.DeclaracoesContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitTipo_basico_ident(RegrasParser.Tipo_basico_identContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterTipo_estendido(RegrasParser.Tipo_estendidoContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitTipo_estendido(RegrasParser.Tipo_estendidoContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterTipo(RegrasParser.TipoContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitTipo(RegrasParser.TipoContext ctx) { }
+	@Override public void exitDeclaracoes(RegrasParser.DeclaracoesContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -100,25 +76,13 @@ public class RegrasBaseListener implements RegrasListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterDeclaracoes(RegrasParser.DeclaracoesContext ctx) { }
+	@Override public void enterIdentificador(RegrasParser.IdentificadorContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitDeclaracoes(RegrasParser.DeclaracoesContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterPrograma(RegrasParser.ProgramaContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitPrograma(RegrasParser.ProgramaContext ctx) { }
+	@Override public void exitIdentificador(RegrasParser.IdentificadorContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -136,13 +100,61 @@ public class RegrasBaseListener implements RegrasListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterIdentificador(RegrasParser.IdentificadorContext ctx) { }
+	@Override public void enterTipo(RegrasParser.TipoContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitIdentificador(RegrasParser.IdentificadorContext ctx) { }
+	@Override public void exitTipo(RegrasParser.TipoContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterTipo_basico(RegrasParser.Tipo_basicoContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitTipo_basico(RegrasParser.Tipo_basicoContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterTipo_basico_ident(RegrasParser.Tipo_basico_identContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitTipo_basico_ident(RegrasParser.Tipo_basico_identContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterTipo_estendido(RegrasParser.Tipo_estendidoContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitTipo_estendido(RegrasParser.Tipo_estendidoContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterValor_constante(RegrasParser.Valor_constanteContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitValor_constante(RegrasParser.Valor_constanteContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -172,30 +184,6 @@ public class RegrasBaseListener implements RegrasListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterVariavel(RegrasParser.VariavelContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitVariavel(RegrasParser.VariavelContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterValor_constante(RegrasParser.Valor_constanteContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitValor_constante(RegrasParser.Valor_constanteContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterRegistro(RegrasParser.RegistroContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -208,6 +196,18 @@ public class RegrasBaseListener implements RegrasListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterVariavel(RegrasParser.VariavelContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitVariavel(RegrasParser.VariavelContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterCorpo(RegrasParser.CorpoContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -215,6 +215,18 @@ public class RegrasBaseListener implements RegrasListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitCorpo(RegrasParser.CorpoContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterCmd(RegrasParser.CmdContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCmd(RegrasParser.CmdContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -340,18 +352,6 @@ public class RegrasBaseListener implements RegrasListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCmd(RegrasParser.CmdContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitCmd(RegrasParser.CmdContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterItem_selecao(RegrasParser.Item_selecaoContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -412,6 +412,54 @@ public class RegrasBaseListener implements RegrasListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterExp_aritmetica(RegrasParser.Exp_aritmeticaContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitExp_aritmetica(RegrasParser.Exp_aritmeticaContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterTermo(RegrasParser.TermoContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitTermo(RegrasParser.TermoContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterFator(RegrasParser.FatorContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitFator(RegrasParser.FatorContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterParcela(RegrasParser.ParcelaContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitParcela(RegrasParser.ParcelaContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterParcela_unario(RegrasParser.Parcela_unarioContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -431,54 +479,6 @@ public class RegrasBaseListener implements RegrasListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitParcela_nao_unario(RegrasParser.Parcela_nao_unarioContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterParcela(RegrasParser.ParcelaContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitParcela(RegrasParser.ParcelaContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterFator(RegrasParser.FatorContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitFator(RegrasParser.FatorContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterTermo(RegrasParser.TermoContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitTermo(RegrasParser.TermoContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterExp_aritmetica(RegrasParser.Exp_aritmeticaContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitExp_aritmetica(RegrasParser.Exp_aritmeticaContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -544,13 +544,13 @@ public class RegrasBaseListener implements RegrasListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFator_logico(RegrasParser.Fator_logicoContext ctx) { }
+	@Override public void enterExpressao(RegrasParser.ExpressaoContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFator_logico(RegrasParser.Fator_logicoContext ctx) { }
+	@Override public void exitExpressao(RegrasParser.ExpressaoContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -568,13 +568,13 @@ public class RegrasBaseListener implements RegrasListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterExpressao(RegrasParser.ExpressaoContext ctx) { }
+	@Override public void enterFator_logico(RegrasParser.Fator_logicoContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitExpressao(RegrasParser.ExpressaoContext ctx) { }
+	@Override public void exitFator_logico(RegrasParser.Fator_logicoContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

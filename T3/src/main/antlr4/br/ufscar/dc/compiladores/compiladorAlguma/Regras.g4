@@ -82,70 +82,80 @@ COMENTARIO:  '{'  ~('\n'|'}')*  '}' -> skip;
 
 ERRO: .;
 
-tipo_basico: 'literal' | 'inteiro' | 'real' | 'logico';
-tipo_basico_ident: tipo_basico | IDENT;
-tipo_estendido: PONTEIRO? tipo_basico_ident;
-tipo: registro | tipo_estendido;
+programa: declaracoes 'algoritmo' corpo 'fim_algoritmo' EOF;
 
-decl_local_global: declaracao_global | declaracao_local;
-
-declaracao_local: 'declare' variavel
-                | 'constante' IDENT ':' tipo_basico '=' valor_constante
-                | 'tipo' IDENT ':' tipo;
-
-declaracao_global: 'procedimento' IDENT '(' parametros? ')' (declaracao_local)* (cmd)* 'fim_procedimento'
-                    | 'funcao' IDENT '(' parametros? ')' ':' tipo_estendido (declaracao_local)* (cmd)* 'fim_funcao';
 
 declaracoes: (decl_local_global)*;
 
-programa: declaracoes 'algoritmo' corpo 'fim_algoritmo';
 
+decl_local_global: declaracao_global | declaracao_local;
+
+declaracao_local: decl='declare' variavel
+                | constant='constante' IDENT ':' tipo_basico '=' valor_constante
+                | decl_tipo='tipo' IDENT ':' tipo;
+
+declaracao_global: proc='procedimento' IDENT '(' parametros? ')' (declaracao_local)* (cmd)* 'fim_procedimento'
+                    | func='funcao' IDENT '(' parametros? ')' ':' tipo_estendido (declaracao_local)* (cmd)* 'fim_funcao';
+
+identificador: primeiroIdent=IDENT ('.' outrosIdent+=IDENT)* dimensao;
 dimensao: ('[' exp_aritmetica ']')*;
-identificador: IDENT ('.' IDENT)* dimensao;
 
-parametro: 'var'? identificador (',' identificador)* ':' tipo_estendido;
-parametros: parametro (',' parametro)*;
+tipo: registro | tipo_estendido;
+tipo_basico: 'literal' | 'inteiro' | 'real' | 'logico';
+tipo_basico_ident: tipo_basico | IDENT;
+tipo_estendido: '^'? tipo_basico_ident;
 
-variavel: identificador (',' identificador)* ':' tipo;
+valor_constante: CADEIA | NUM_INT | NUM_REAL | 'verdadeiro' | 'falso';
 
-valor_constante: CADEIA | NUM_INT | NUM_REAL | VERDADEIRO | FALSO;
+parametro: 'var'? primeiroID=identificador (',' outrosId+=identificador)* ':' tipo_estendido;
+parametros: primeiroParam=parametro (',' outrosParam+=parametro)*;
+
+
 registro: 'registro' (variavel)* 'fim_registro';
+
+
+variavel: primeiroId=identificador (',' outrosID+=identificador)* ':' tipo;
+
 
 corpo: (declaracao_local)* (cmd)*;
 
-cmdLeia: LEIA '(' PONTEIRO? identificador (',' PONTEIRO? identificador)* ')';
-cmdEscreva: ESCREVA '(' expressao (',' expressao)* ')';
-cmdSe: SE expressao ENTAO (cmd)* ( SENAO (cmd)*)? FIM_SE;
-
-cmdCaso : CASO exp_aritmetica SEJA selecao (SENAO (cmd)* )?  FIM_CASO;
-cmdPara: PARA IDENT '<-' exp_aritmetica ATE exp_aritmetica FACA (cmd)* FIM_PARA;
-cmdEnquanto: ENQUANTO expressao FACA (cmd)* FIM_ENQUANTO;
-cmdFaca: FACA (cmd)* ATE expressao;
-cmdAtribuicao: PONTEIRO? identificador '<-' expressao;
-cmdChamada: IDENT '(' expressao (',' expressao)* ')';
-cmdRetorne: RETORNE expressao;
 
 cmd: cmdLeia | cmdEscreva | cmdSe | cmdCaso | cmdPara | cmdEnquanto
     | cmdFaca | cmdAtribuicao | cmdChamada | cmdRetorne | cmdLeia
     | cmdEscreva |cmdSe | cmdCaso | cmdPara | cmdEnquanto |cmdFaca
     | cmdAtribuicao | cmdChamada | cmdRetorne;
 
+cmdLeia: 'leia' '(' '^'? primeiroId=identificador (',' '^'? outrosId+=identificador)* ')';
+cmdEscreva: 'escreva' '(' primeiraExp=expressao (',' outrasExp+=expressao)* ')';
+cmdSe: 'se' expressao 'entao' (comandos+=cmd)* ('senao' (outrosComandos+=cmd)*)? 'fim_se';
+
+cmdCaso : 'caso' exp_aritmetica 'seja' selecao ('senao' (cmd)* )?  'fim_caso';
+cmdPara: 'para' IDENT '<-' exp_aritmetica 'ate' exp_aritmetica 'faca' (cmd)* 'fim_para';
+cmdEnquanto: 'enquanto' expressao 'faca' (cmd)* 'fim_enquanto';
+cmdFaca: 'faca' (cmd)* 'ate' expressao;
+cmdAtribuicao: '^'? identificador '<-' expressao;
+cmdChamada: IDENT '(' primeiraExp=expressao (',' outrasExp=expressao)* ')';
+cmdRetorne: 'retorne' expressao;
+
 item_selecao: constantes ':' (cmd)*;
 selecao: (item_selecao)*;
 
 op_unario: '-';
-numero_intervalo: op_unario? NUM_INT ('..' op_unario? NUM_INT)?;
+numero_intervalo: op_unario? primeiroNum=NUM_INT ('..' op_unario? segundoNum=NUM_INT)?;
 constantes: numero_intervalo (',' numero_intervalo)*;
 
-parcela_unario: PONTEIRO? identificador | IDENT '(' expressao (',' expressao)* ')'
-        | NUM_INT | NUM_REAL
-        | '(' expressao ')';
-parcela_nao_unario: '&' identificador | CADEIA;
-parcela: op_unario? parcela_unario | parcela_nao_unario;
 
-fator: parcela (op3 parcela)*;
-termo: fator (op2 fator)*;
-exp_aritmetica: termo (op1 termo)*;
+
+exp_aritmetica: primeiroTermo=termo (op1 outrosTermos+=termo)*;
+termo: primeiroFat=fator (op2 outrosFat+=fator)*;
+fator: primeiraPar=parcela (op3 outrasPar+=parcela)*;
+
+parcela: op_unario? parcela_unario | parcela_nao_unario;
+parcela_unario: '^'? identificador | IDENT '(' primeiraExp=expressao (',' outrasExp+=expressao)* ')'
+        | NUM_INT | NUM_REAL
+        | '(' outraExp=expressao ')';
+parcela_nao_unario: '&' identificador | CADEIA;
+
 
 op1: '+' | '-';
 op2: '*' | '/';
@@ -154,10 +164,12 @@ op3: '%';
 op_relacional:  '=' | '<>' | '>=' | '<=' | '>' | '<';
 exp_relacional: exp_aritmetica (op_relacional exp_aritmetica)?;
 
-fator_logico: NEGACAO? parcela_logica;
-termo_logico: fator_logico (op_logico_2 fator_logico)*;
-expressao: termo_logico (op_logico_1 termo_logico)*;
-parcela_logica: ( VERDADEIRO | FALSO ) | exp_relacional;
+
+expressao: primeiroTermoLog=termo_logico (op_logico_1 outrosTermosLog+=termo_logico)*;
+termo_logico: primeiroFatLogico=fator_logico (op_logico_2 outrosFatLogico+=fator_logico)*;
+fator_logico: 'nao'? parcela_logica;
+
+parcela_logica: ( 'verdadeiro' | 'falso' ) | exp_relacional;
 
 op_logico_1: 'e';
 op_logico_2: 'ou';
