@@ -1,6 +1,7 @@
 package br.ufscar.dc.compiladores.compiladorAlguma;
 
 import java.util.LinkedList;
+import java.util.List;
 
 public class Escopos {
     private LinkedList<TabelaDeSimbolos> pilhaDeTabelas;
@@ -25,4 +26,14 @@ public class Escopos {
     public void abandonarEscopo(){
         pilhaDeTabelas.pop();
     }
+    /*
+     static public EntradaTabelaDeSimbolos getSimbolo(String nome) {
+        for (TabelaDeSimbolos ts : pilhaDeTabelas) {
+            EntradaTabelaDeSimbolos entry = ts.getSimbolo(nome);
+            if (entry != null) {
+                return entry;
+            }
+        }
+        return null;
+    }*/
 }

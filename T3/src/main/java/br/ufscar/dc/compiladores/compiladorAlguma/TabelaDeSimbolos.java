@@ -6,32 +6,46 @@
 package br.ufscar.dc.compiladores.compiladorAlguma;
 
 import java.util.HashMap;
+import java.util.Map;
 
 
 public class TabelaDeSimbolos {
-    private HashMap<String, EntradaTabelaDeSimbolos> tabelaDeSimbolos;
     
     public enum TipoLA{
         INTEIRO,
         REAL,
         LITERAL,
         LOGICO,
+        REGISTRO,
         INVALIDO
     }
     
+    class EntradaTabelaDeSimbolos{
+        String nome;
+        TipoLA tipo;
+        
+        private EntradaTabelaDeSimbolos(String nome, TipoLA tipo){
+            this.nome = nome;
+            this.tipo = tipo;
+        }
+    }
     
+    private final Map<String, EntradaTabelaDeSimbolos> tabela;
+     
     public TabelaDeSimbolos(){
-        tabelaDeSimbolos= new HashMap<>();
+        this.tabela= new HashMap<>();
     }
     
-    public void inserir(String nome, double valor){
-        EntradaTabelaDeSimbolos entrada = new EntradaTabelaDeSimbolos();
-        entrada.nome=nome;
-        entrada.valor = valor;
-        tabelaDeSimbolos.put(nome, entrada);
+    public void inserir(String nome, TipoLA tipo){
+       tabela.put(nome, new EntradaTabelaDeSimbolos(nome,tipo));
     }
     
-    public EntradaTabelaDeSimbolos verificar(String nome){
-        return tabelaDeSimbolos.get(nome);
+    public boolean existe(String nome) {
+        return tabela.containsKey(nome);
     }
+    
+    public TipoLA verificar(String nome){
+        return tabela.get(nome).tipo;
+    }
+    
 }

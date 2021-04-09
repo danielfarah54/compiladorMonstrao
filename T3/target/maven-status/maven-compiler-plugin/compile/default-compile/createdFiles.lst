@@ -1,5 +1,6 @@
 br/ufscar/dc/compiladores/compiladorAlguma/TabelaDeSimbolos.class
 br/ufscar/dc/compiladores/compiladorAlguma/RegrasParser$CmdRetorneContext.class
+br/ufscar/dc/compiladores/compiladorAlguma/TabelaDeSimbolos$1.class
 br/ufscar/dc/compiladores/compiladorAlguma/RegrasParser$CmdParaContext.class
 br/ufscar/dc/compiladores/compiladorAlguma/RegrasParser$CmdContext.class
 br/ufscar/dc/compiladores/compiladorAlguma/RegrasParser$CmdCasoContext.class
@@ -8,11 +9,12 @@ br/ufscar/dc/compiladores/compiladorAlguma/RegrasBaseListener.class
 br/ufscar/dc/compiladores/compiladorAlguma/RegrasBaseVisitor.class
 br/ufscar/dc/compiladores/compiladorAlguma/RegrasParser$Termo_logicoContext.class
 br/ufscar/dc/compiladores/compiladorAlguma/RegrasParser$Parcela_logicaContext.class
-br/ufscar/dc/compiladores/compiladorAlguma/EntradaTabelaDeSimbolos.class
 br/ufscar/dc/compiladores/compiladorAlguma/Escopos.class
 br/ufscar/dc/compiladores/compiladorAlguma/RegrasParser$CmdChamadaContext.class
 br/ufscar/dc/compiladores/compiladorAlguma/RegrasParser$TipoContext.class
+br/ufscar/dc/compiladores/compiladorAlguma/LASemanticoUtils.class
 br/ufscar/dc/compiladores/compiladorAlguma/RegrasParser$Op_logico_1Context.class
+br/ufscar/dc/compiladores/compiladorAlguma/LAGeradorC.class
 br/ufscar/dc/compiladores/compiladorAlguma/RegrasParser$DimensaoContext.class
 br/ufscar/dc/compiladores/compiladorAlguma/RegrasLexer.class
 br/ufscar/dc/compiladores/compiladorAlguma/RegrasParser$Tipo_basico_identContext.class
@@ -35,6 +37,7 @@ br/ufscar/dc/compiladores/compiladorAlguma/RegrasParser$CmdAtribuicaoContext.cla
 br/ufscar/dc/compiladores/compiladorAlguma/RegrasParser$Op_relacionalContext.class
 br/ufscar/dc/compiladores/compiladorAlguma/RegrasParser$Exp_relacionalContext.class
 br/ufscar/dc/compiladores/compiladorAlguma/RegrasParser$FatorContext.class
+br/ufscar/dc/compiladores/compiladorAlguma/LAGeradorC$1.class
 br/ufscar/dc/compiladores/compiladorAlguma/RegrasVisitor.class
 br/ufscar/dc/compiladores/compiladorAlguma/RegrasParser$ConstantesContext.class
 br/ufscar/dc/compiladores/compiladorAlguma/RegrasParser$Parcela_nao_unarioContext.class
@@ -45,6 +48,7 @@ br/ufscar/dc/compiladores/compiladorAlguma/RegrasParser$Op_unarioContext.class
 br/ufscar/dc/compiladores/compiladorAlguma/RegrasParser$VariavelContext.class
 br/ufscar/dc/compiladores/compiladorAlguma/RegrasParser$Decl_local_globalContext.class
 br/ufscar/dc/compiladores/compiladorAlguma/RegrasParser$Declaracao_localContext.class
+br/ufscar/dc/compiladores/compiladorAlguma/TabelaDeSimbolos$EntradaTabelaDeSimbolos.class
 br/ufscar/dc/compiladores/compiladorAlguma/RegrasParser$Op_logico_2Context.class
 br/ufscar/dc/compiladores/compiladorAlguma/RegrasParser$Tipo_estendidoContext.class
 br/ufscar/dc/compiladores/compiladorAlguma/RegrasParser$Tipo_basicoContext.class
