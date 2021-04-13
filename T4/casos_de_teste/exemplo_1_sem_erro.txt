@@ -1,0 +1,16 @@
+# primeiro exemplo
+cronograma {
+	task {
+		name: "Tarefa 1";
+
+		# data do prazo
+		date: 20/04/2021;
+		description: "primeira tarefa";
+	}
+
+	task {
+		name: "Tarefa 2";
+		date: 21/04/2021;
+		description: "segunda tarefa";
+	}
+}
