@@ -1,0 +1,16 @@
+# comentário
+cronograma {
+	task {
+		name: "Tarefa 1;
+
+		# data do prazo
+		date: 24/04/2021;
+		description: "descrição da terefa";
+	}
+
+	task {
+		name: "Tarefa 2";
+		date: 20/04/2021;
+		description: "alguma coisa";
+	}
+}
