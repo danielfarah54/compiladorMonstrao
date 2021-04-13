@@ -6,6 +6,8 @@ CRONOGRAMA: 'cronograma'
 ;
 TASK: 'task'
 ;
+NAME: 'name'
+;
 DATE: 'date'
 ;
 DESCRIPTION: 'description'
@@ -47,17 +49,15 @@ ERRO: .
 
 
 // sintaxe
-tarefa: 'task' ':' CADEIA
+nome: 'name' ':' CADEIA ';'
 ;
-data: 'date' ':' INT '/' INT '/' INT
+data: 'date' ':' INT '/' INT '/' INT ';'
 ;
-descricao: 'description' ':' CADEIA
+descricao: 'description' ':' CADEIA ';'
 ;
-item: tarefa '\n'
-	  data '\n'
-	  descricao ';'
+tarefa: 'task' '{' nome data descricao '}'
 ;
-tarefas: (item)+
+tarefas: (tarefa)+
 ;
 programa: 'cronograma' '{' tarefas '}'
 ;
