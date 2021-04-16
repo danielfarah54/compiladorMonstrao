@@ -39,7 +39,7 @@ public class AnalisadorSemantico extends TaskRulesBaseVisitor<Void> {
 
     @Override
     public Void visitData(TaskRulesParser.DataContext ctx) {
-        SemanticoUtils.verificarData(ctx.DIAMES(), ctx.ANO());
+        SemanticoUtils.verificarData(ctx);
         return super.visitData(ctx);
     }
 }

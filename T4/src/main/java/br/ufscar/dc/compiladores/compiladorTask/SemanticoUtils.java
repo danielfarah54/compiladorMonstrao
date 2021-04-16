@@ -30,7 +30,7 @@ public class SemanticoUtils {
         }
     }
 
-    public static void verificarData(TabelaDeSimbolos tabela, TaskRulesParser.DataContext ctx) {
+    public static void verificarData(TaskRulesParser.DataContext ctx) {
         boolean anoBissexto = verificaAnoBissexto(Integer.parseInt(ctx.ANO().getText()));
         if (Integer.parseInt(ctx.DIAMES(1).getText()) <= 12) {
             //verificação para os meses de Janeiro à Julho
