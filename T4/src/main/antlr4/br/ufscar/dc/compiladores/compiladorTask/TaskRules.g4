@@ -9,9 +9,7 @@ TASK: 'task'
 NAME: 'name'
 ;
 // data
-DIA: [0-3][0-9]
-;
-MES: [0-1][0-9]
+DIAMES: [0-3][0-9]
 ;
 ANO: [0-9][0-9][0-9][0-9]
 ;
@@ -41,7 +39,7 @@ CADEIA: ('"' ('a'..'z'|'A'..'Z')( ESC_SEQ | ~('"'| '\n') )* '"')
 
 CADEIA2_NAO_FECHADA: ('"' ('a'..'z'|'A'..'Z')( ESC_SEQ | ~('"'| '}') )* '}')
 ;
-CADEIA2: ('"' ('a'..'z'|'A'..'Z')( ESC_SEQ | ~('"'| '}') )* '"')
+CADEIA2: ('"' ('a'..'z'|'A'..'Z')( ESC_SEQ | ~('"'| ';' |'}') )* '"')
 ;
 
 fragment ESC_SEQ: '\\\''
@@ -63,9 +61,9 @@ ERRO: .
 // sintaxe
 nome: 'name' ':' CADEIA ';'
 ;
-data: 'date' ':' DIA '/' MES '/' ANO ';'
+data: 'date' ':' DIAMES '/' DIAMES '/' ANO ';'
 ;
-descricao: 'description' ':' CADEIA2 ';'
+descricao: 'description' ':' CADEIA ';'
 ;
 tarefa: 'task' '{' nome data descricao '}'
 ;

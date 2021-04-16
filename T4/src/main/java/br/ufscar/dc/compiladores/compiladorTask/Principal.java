@@ -31,8 +31,8 @@ public class Principal {
             
             // Enquanto existirem tokens
             while ((t = lex.nextToken()).getType() != Token.EOF) {
-
-                //System.out.println("<" + TaskRulesLexer.VOCABULARY.getDisplayName(t.getType()) + "," + t.getText() + ">");
+                 
+                System.out.println("<" + TaskRulesLexer.VOCABULARY.getDisplayName(t.getType()) + "," + t.getText() + ">");
                 
                 // TRATAMENTO DOS ERROS LÉXICOS:
                 

@@ -17,10 +17,10 @@ public class TaskRulesParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		T__0=1, T__1=2, CRONOGRAMA=3, TASK=4, NAME=5, DIA=6, MES=7, ANO=8, DESCRIPTION=9, 
-		ABRE_CHAVE=10, FECHA_CHAVE=11, DOIS_PONTOS=12, PONTO_VIRGULA=13, INT=14, 
-		CADEIA_NAO_FECHADA=15, CADEIA=16, CADEIA2_NAO_FECHADA=17, CADEIA2=18, 
-		COMENTARIO=19, WS=20, ERRO=21;
+		T__0=1, T__1=2, CRONOGRAMA=3, TASK=4, NAME=5, DIAMES=6, ANO=7, DESCRIPTION=8, 
+		ABRE_CHAVE=9, FECHA_CHAVE=10, DOIS_PONTOS=11, PONTO_VIRGULA=12, INT=13, 
+		CADEIA_NAO_FECHADA=14, CADEIA=15, CADEIA2_NAO_FECHADA=16, CADEIA2=17, 
+		COMENTARIO=18, WS=19, ERRO=20;
 	public static final int
 		RULE_nome = 0, RULE_data = 1, RULE_descricao = 2, RULE_tarefa = 3, RULE_tarefas = 4, 
 		RULE_programa = 5;
@@ -34,16 +34,15 @@ public class TaskRulesParser extends Parser {
 	private static String[] makeLiteralNames() {
 		return new String[] {
 			null, "'date'", "'/'", "'cronograma'", "'task'", "'name'", null, null, 
-			null, "'description'", "'{'", "'}'", "':'", "';'"
+			"'description'", "'{'", "'}'", "':'", "';'"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
-			null, null, null, "CRONOGRAMA", "TASK", "NAME", "DIA", "MES", "ANO", 
-			"DESCRIPTION", "ABRE_CHAVE", "FECHA_CHAVE", "DOIS_PONTOS", "PONTO_VIRGULA", 
-			"INT", "CADEIA_NAO_FECHADA", "CADEIA", "CADEIA2_NAO_FECHADA", "CADEIA2", 
-			"COMENTARIO", "WS", "ERRO"
+			null, null, null, "CRONOGRAMA", "TASK", "NAME", "DIAMES", "ANO", "DESCRIPTION", 
+			"ABRE_CHAVE", "FECHA_CHAVE", "DOIS_PONTOS", "PONTO_VIRGULA", "INT", "CADEIA_NAO_FECHADA", 
+			"CADEIA", "CADEIA2_NAO_FECHADA", "CADEIA2", "COMENTARIO", "WS", "ERRO"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -150,8 +149,10 @@ public class TaskRulesParser extends Parser {
 
 	public static class DataContext extends ParserRuleContext {
 		public TerminalNode DOIS_PONTOS() { return getToken(TaskRulesParser.DOIS_PONTOS, 0); }
-		public TerminalNode DIA() { return getToken(TaskRulesParser.DIA, 0); }
-		public TerminalNode MES() { return getToken(TaskRulesParser.MES, 0); }
+		public List<TerminalNode> DIAMES() { return getTokens(TaskRulesParser.DIAMES); }
+		public TerminalNode DIAMES(int i) {
+			return getToken(TaskRulesParser.DIAMES, i);
+		}
 		public TerminalNode ANO() { return getToken(TaskRulesParser.ANO, 0); }
 		public TerminalNode PONTO_VIRGULA() { return getToken(TaskRulesParser.PONTO_VIRGULA, 0); }
 		public DataContext(ParserRuleContext parent, int invokingState) {
@@ -184,11 +185,11 @@ public class TaskRulesParser extends Parser {
 			setState(18);
 			match(DOIS_PONTOS);
 			setState(19);
-			match(DIA);
+			match(DIAMES);
 			setState(20);
 			match(T__1);
 			setState(21);
-			match(MES);
+			match(DIAMES);
 			setState(22);
 			match(T__1);
 			setState(23);
@@ -211,7 +212,7 @@ public class TaskRulesParser extends Parser {
 	public static class DescricaoContext extends ParserRuleContext {
 		public TerminalNode DESCRIPTION() { return getToken(TaskRulesParser.DESCRIPTION, 0); }
 		public TerminalNode DOIS_PONTOS() { return getToken(TaskRulesParser.DOIS_PONTOS, 0); }
-		public TerminalNode CADEIA2() { return getToken(TaskRulesParser.CADEIA2, 0); }
+		public TerminalNode CADEIA() { return getToken(TaskRulesParser.CADEIA, 0); }
 		public TerminalNode PONTO_VIRGULA() { return getToken(TaskRulesParser.PONTO_VIRGULA, 0); }
 		public DescricaoContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -243,7 +244,7 @@ public class TaskRulesParser extends Parser {
 			setState(27);
 			match(DOIS_PONTOS);
 			setState(28);
-			match(CADEIA2);
+			match(CADEIA);
 			setState(29);
 			match(PONTO_VIRGULA);
 			}
@@ -436,18 +437,18 @@ public class TaskRulesParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\27\63\4\2\t\2\4\3"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\26\63\4\2\t\2\4\3"+
 		"\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\3\2\3\2\3\2\3\2\3\2\3\3\3\3\3\3\3"+
 		"\3\3\3\3\3\3\3\3\3\3\3\3\4\3\4\3\4\3\4\3\4\3\5\3\5\3\5\3\5\3\5\3\5\3\5"+
 		"\3\6\6\6*\n\6\r\6\16\6+\3\7\3\7\3\7\3\7\3\7\3\7\2\2\b\2\4\6\b\n\f\2\2"+
 		"\2-\2\16\3\2\2\2\4\23\3\2\2\2\6\34\3\2\2\2\b!\3\2\2\2\n)\3\2\2\2\f-\3"+
-		"\2\2\2\16\17\7\7\2\2\17\20\7\16\2\2\20\21\7\22\2\2\21\22\7\17\2\2\22\3"+
-		"\3\2\2\2\23\24\7\3\2\2\24\25\7\16\2\2\25\26\7\b\2\2\26\27\7\4\2\2\27\30"+
-		"\7\t\2\2\30\31\7\4\2\2\31\32\7\n\2\2\32\33\7\17\2\2\33\5\3\2\2\2\34\35"+
-		"\7\13\2\2\35\36\7\16\2\2\36\37\7\24\2\2\37 \7\17\2\2 \7\3\2\2\2!\"\7\6"+
-		"\2\2\"#\7\f\2\2#$\5\2\2\2$%\5\4\3\2%&\5\6\4\2&\'\7\r\2\2\'\t\3\2\2\2("+
-		"*\5\b\5\2)(\3\2\2\2*+\3\2\2\2+)\3\2\2\2+,\3\2\2\2,\13\3\2\2\2-.\7\5\2"+
-		"\2./\7\f\2\2/\60\5\n\6\2\60\61\7\r\2\2\61\r\3\2\2\2\3+";
+		"\2\2\2\16\17\7\7\2\2\17\20\7\r\2\2\20\21\7\21\2\2\21\22\7\16\2\2\22\3"+
+		"\3\2\2\2\23\24\7\3\2\2\24\25\7\r\2\2\25\26\7\b\2\2\26\27\7\4\2\2\27\30"+
+		"\7\b\2\2\30\31\7\4\2\2\31\32\7\t\2\2\32\33\7\16\2\2\33\5\3\2\2\2\34\35"+
+		"\7\n\2\2\35\36\7\r\2\2\36\37\7\21\2\2\37 \7\16\2\2 \7\3\2\2\2!\"\7\6\2"+
+		"\2\"#\7\13\2\2#$\5\2\2\2$%\5\4\3\2%&\5\6\4\2&\'\7\f\2\2\'\t\3\2\2\2(*"+
+		"\5\b\5\2)(\3\2\2\2*+\3\2\2\2+)\3\2\2\2+,\3\2\2\2,\13\3\2\2\2-.\7\5\2\2"+
+		"./\7\13\2\2/\60\5\n\6\2\60\61\7\f\2\2\61\r\3\2\2\2\3+";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {
