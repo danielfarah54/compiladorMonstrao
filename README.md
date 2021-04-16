@@ -55,7 +55,7 @@ $ mvn compile
 ```
 
 
-## Como executar (Pasta raiz do projeto):
+### Como executar (Pasta raiz do projeto):
 
 [Executável](https://github.com/danielfarah54/compiladorMonstrao/blob/main/T2/target/CompiladorAlguma-1.0-SNAPSHOT-jar-with-dependencies.jar)
 
