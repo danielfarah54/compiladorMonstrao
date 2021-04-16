@@ -29,7 +29,7 @@ $ mvn compile
 
 ### Como executar (Pasta raiz do projeto):
 
-[Executável](https://github.com/yasuo-00/compiladorMonstrao/blob/main/T1/target/CompiladorAlguma-1.0-SNAPSHOT-jar-with-dependencies.jar)
+[Executável](https://github.com/danielfarah54/compiladorMonstrao/blob/main/T1/target/CompiladorAlguma-1.0-SNAPSHOT-jar-with-dependencies.jar)
 
 ```
 $ java -jar ./target/CompiladorAlguma-1.0-SNAPSHOT-jar-with-dependencies.jar ArquivoDeEntrada ArquivoDeSaida
@@ -57,7 +57,7 @@ $ mvn compile
 
 ## Como executar (Pasta raiz do projeto):
 
-[Executável](https://github.com/danielfarah54/compiladorMonstrao/blob/main/target/CompiladorAlguma-1.0-SNAPSHOT-jar-with-dependencies.jar)
+[Executável](https://github.com/danielfarah54/compiladorMonstrao/blob/main/T2/target/CompiladorAlguma-1.0-SNAPSHOT-jar-with-dependencies.jar)
 
 ```
 $ java -jar ./target/CompiladorAlguma-1.0-SNAPSHOT-jar-with-dependencies.jar ArquivoDeEntrada ArquivoDeSaida
@@ -96,7 +96,7 @@ $ mvn compile
 
 ### Como executar (Pasta raiz do projeto):
 
-[Executável](https://github.com/yasuo-00/compiladorMonstrao/blob/main/T3/target/CompiladorAlguma-1.0-SNAPSHOT-jar-with-dependencies.jar)
+[Executável](https://github.com/danielfarah54/compiladorMonstrao/blob/main/T3/target/CompiladorAlguma-1.0-SNAPSHOT-jar-with-dependencies.jar)
 
 ```
 $ java -jar ./target/CompiladorAlguma-1.0-SNAPSHOT-jar-with-dependencies.jar ArquivoDeEntrada ArquivoDeSaida
@@ -129,7 +129,7 @@ $ mvn compile
 
 ### Como executar (Pasta raiz do projeto):
 
-[Executável](https://github.com/yasuo-00/compiladorMonstrao/blob/main/T4/target/CompiladorTask-1.0-SNAPSHOT-jar-with-dependencies.jar)
+[Executável](https://github.com/danielfarah54/compiladorMonstrao/blob/main/T4/target/CompiladorTask-1.0-SNAPSHOT-jar-with-dependencies.jar)
 
 ```
 $ java -jar ./target/CompiladorTask-1.0-SNAPSHOT-jar-with-dependencies.jar ArquivoDeEntrada ArquivoDeSaida
