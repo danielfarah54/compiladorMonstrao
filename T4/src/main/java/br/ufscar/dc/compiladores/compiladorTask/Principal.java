@@ -37,7 +37,14 @@ public class Principal {
                 // TRATAMENTO DOS ERROS LÉXICOS:
                 
                 // Cadeia não fechada
-                if (TaskRulesLexer.VOCABULARY.getDisplayName(t.getType()).equals("CADEIA_NAO_FECHADA")) {
+                if (TaskRulesLexer.VOCABULARY.getDisplayName(t.getType()).equals("CADEIA_LINHA_NAO_FECHADA")) {
+                    pw.println("Linha " + (lex.getLine() - 1) + ": cadeia literal nao fechada");
+                    pw.println("Fim da compilacao");
+                    pw.close();
+                    return;
+                }
+                
+                if (TaskRulesLexer.VOCABULARY.getDisplayName(t.getType()).equals("CADEIA_MULTILINHA_NAO_FECHADA")) {
                     pw.println("Linha " + (lex.getLine() - 1) + ": cadeia literal nao fechada");
                     pw.println("Fim da compilacao");
                     pw.close();

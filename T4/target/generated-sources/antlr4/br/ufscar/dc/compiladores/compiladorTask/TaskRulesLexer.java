@@ -19,8 +19,8 @@ public class TaskRulesLexer extends Lexer {
 	public static final int
 		T__0=1, T__1=2, CRONOGRAMA=3, TASK=4, NAME=5, DIAMES=6, ANO=7, DESCRIPTION=8, 
 		ABRE_CHAVE=9, FECHA_CHAVE=10, DOIS_PONTOS=11, PONTO_VIRGULA=12, INT=13, 
-		CADEIA_NAO_FECHADA=14, CADEIA=15, CADEIA2_NAO_FECHADA=16, CADEIA2=17, 
-		COMENTARIO=18, WS=19, ERRO=20;
+		CADEIA_LINHA_NAO_FECHADA=14, CADEIA_LINHA=15, CADEIA_MULTILINHA_NAO_FECHADA=16, 
+		CADEIA_MULTILINHA=17, COMENTARIO=18, WS=19, ERRO=20;
 	public static String[] channelNames = {
 		"DEFAULT_TOKEN_CHANNEL", "HIDDEN"
 	};
@@ -32,9 +32,9 @@ public class TaskRulesLexer extends Lexer {
 	private static String[] makeRuleNames() {
 		return new String[] {
 			"T__0", "T__1", "CRONOGRAMA", "TASK", "NAME", "DIAMES", "ANO", "DESCRIPTION", 
-			"ABRE_CHAVE", "FECHA_CHAVE", "DOIS_PONTOS", "PONTO_VIRGULA", "INT", "CADEIA_NAO_FECHADA", 
-			"CADEIA", "CADEIA2_NAO_FECHADA", "CADEIA2", "ESC_SEQ", "COMENTARIO", 
-			"WS", "ERRO"
+			"ABRE_CHAVE", "FECHA_CHAVE", "DOIS_PONTOS", "PONTO_VIRGULA", "INT", "CADEIA_LINHA_NAO_FECHADA", 
+			"CADEIA_LINHA", "CADEIA_MULTILINHA_NAO_FECHADA", "CADEIA_MULTILINHA", 
+			"ESC_SEQ", "COMENTARIO", "WS", "ERRO"
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
@@ -49,8 +49,9 @@ public class TaskRulesLexer extends Lexer {
 	private static String[] makeSymbolicNames() {
 		return new String[] {
 			null, null, null, "CRONOGRAMA", "TASK", "NAME", "DIAMES", "ANO", "DESCRIPTION", 
-			"ABRE_CHAVE", "FECHA_CHAVE", "DOIS_PONTOS", "PONTO_VIRGULA", "INT", "CADEIA_NAO_FECHADA", 
-			"CADEIA", "CADEIA2_NAO_FECHADA", "CADEIA2", "COMENTARIO", "WS", "ERRO"
+			"ABRE_CHAVE", "FECHA_CHAVE", "DOIS_PONTOS", "PONTO_VIRGULA", "INT", "CADEIA_LINHA_NAO_FECHADA", 
+			"CADEIA_LINHA", "CADEIA_MULTILINHA_NAO_FECHADA", "CADEIA_MULTILINHA", 
+			"COMENTARIO", "WS", "ERRO"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
