@@ -10,7 +10,7 @@ cronograma {
 
 	task {
 		name: "Tarefa 2";
-		date: 20/04/2021;
+		date: 20/05/2021;
 		description: "alguma coisa";
 	}
 }

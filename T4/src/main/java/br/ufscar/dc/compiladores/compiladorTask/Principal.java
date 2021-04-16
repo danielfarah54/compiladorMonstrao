@@ -18,9 +18,9 @@ public class Principal {
             CharStream cs = CharStreams.fromFileName(args[0]);
             
             // Declarações do analisador léxico e do analisador sintático
-            RegrasLexicasLexer lex = new RegrasLexicasLexer(cs);
+            TaskRulesLexer lex = new TaskRulesLexer(cs);
             CommonTokenStream tokens = new CommonTokenStream(lex);
-            RegrasLexicasParser parser = new RegrasLexicasParser(tokens);
+            TaskRulesParser parser = new TaskRulesParser(tokens);
 
             // Criação de um listener para o parser, para customização das mensagens de erro
             CustomErrorListener mcel = new CustomErrorListener(pw);
@@ -32,12 +32,12 @@ public class Principal {
             // Enquanto existirem tokens
             while ((t = lex.nextToken()).getType() != Token.EOF) {
 
-                //System.out.println("<" + RegrasLexicasLexer.VOCABULARY.getDisplayName(t.getType()) + "," + t.getText() + ">");
+                //System.out.println("<" + TaskRulesLexer.VOCABULARY.getDisplayName(t.getType()) + "," + t.getText() + ">");
                 
                 // TRATAMENTO DOS ERROS LÉXICOS:
                 
                 // Cadeia não fechada
-                if (RegrasLexicasLexer.VOCABULARY.getDisplayName(t.getType()).equals("CADEIA_NAO_FECHADA")) {
+                if (TaskRulesLexer.VOCABULARY.getDisplayName(t.getType()).equals("CADEIA_NAO_FECHADA")) {
                     pw.println("Linha " + (lex.getLine() - 1) + ": cadeia literal nao fechada");
                     pw.println("Fim da compilacao");
                     pw.close();
@@ -45,7 +45,7 @@ public class Principal {
                 }
                 
                 // Símbolo não identificado
-                if (RegrasLexicasLexer.VOCABULARY.getDisplayName(t.getType()).equals("ERRO")) {
+                if (TaskRulesLexer.VOCABULARY.getDisplayName(t.getType()).equals("ERRO")) {
                     pw.println("Linha " + lex.getLine() + ": " + t.getText() + " - simbolo nao identificado");
                     pw.println("Fim da compilacao");
                     pw.close();
