@@ -1,7 +1,6 @@
 package br.ufscar.dc.compiladores.compiladorTask;
 
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import org.antlr.v4.runtime.CharStream;
@@ -39,24 +38,19 @@ public class Principal {
                 // Cadeia não fechada
                 if (TaskRulesLexer.VOCABULARY.getDisplayName(t.getType()).equals("CADEIA_LINHA_NAO_FECHADA")) {
                     pw.println("Linha " + (lex.getLine() - 1) + ": cadeia literal nao fechada");
-                    pw.println("Fim da compilacao");
-                    pw.close();
-                    return;
+
+
                 }
                 
                 if (TaskRulesLexer.VOCABULARY.getDisplayName(t.getType()).equals("CADEIA_MULTILINHA_NAO_FECHADA")) {
                     pw.println("Linha " + (lex.getLine() - 1) + ": cadeia literal nao fechada");
-                    pw.println("Fim da compilacao");
-                    pw.close();
-                    return;
+
                 }
                 
                 // Símbolo não identificado
                 if (TaskRulesLexer.VOCABULARY.getDisplayName(t.getType()).equals("ERRO")) {
                     pw.println("Linha " + lex.getLine() + ": " + t.getText() + " - simbolo nao identificado");
-                    pw.println("Fim da compilacao");
-                    pw.close();
-                    return;
+
                 }
             }
             
@@ -66,7 +60,26 @@ public class Principal {
             lex.reset();
 
             // Inicia o analisador sintático
-            parser.programa();
+            //parser.programa();
+            TaskRulesParser.ProgramaContext arvore = parser.programa();
+            AnalisadorSemantico as = new AnalisadorSemantico();
+            as.visitPrograma(arvore);
+            
+              if(SemanticoUtils.errosSemanticos.isEmpty()){
+
+                GeradorCronoTask aux = new GeradorCronoTask();
+                aux.visitPrograma(arvore);
+                pw.print(aux.saida.toString());
+
+            }else{
+                 for(String erros : SemanticoUtils.errosSemanticos){
+                    pw.println(erros);
+                    
+                 }
+                 pw.println("Fim da compilacao");
+            }
+            
+            //pw.println("Fim da compilacao");
             pw.close();
 
         } catch (IOException ex) {

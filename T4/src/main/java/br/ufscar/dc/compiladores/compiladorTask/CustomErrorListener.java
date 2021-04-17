@@ -44,16 +44,13 @@ public class CustomErrorListener implements ANTLRErrorListener {
         // Tratando o erro de fim de arquivo
         if (t.getText().equals("<EOF>")) {
             pw.println("Linha " + line + ": erro sintatico proximo a EOF");
-            pw.println("Fim da compilacao");
         }
         
         // Para outros tipos de erro:
         else {
             pw.println("Linha " + line + ": erro sintatico proximo a " + t.getText());
-            pw.println("Fim da compilacao");
+
             
-            // Fechar o writer para parar a execução
-            pw.close();
         }
     }
 }

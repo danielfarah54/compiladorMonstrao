@@ -18,6 +18,36 @@ public interface TaskRulesListener extends ParseTreeListener {
 	 */
 	void exitNome(TaskRulesParser.NomeContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link TaskRulesParser#categoria}.
+	 * @param ctx the parse tree
+	 */
+	void enterCategoria(TaskRulesParser.CategoriaContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link TaskRulesParser#categoria}.
+	 * @param ctx the parse tree
+	 */
+	void exitCategoria(TaskRulesParser.CategoriaContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link TaskRulesParser#tipo_categoria}.
+	 * @param ctx the parse tree
+	 */
+	void enterTipo_categoria(TaskRulesParser.Tipo_categoriaContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link TaskRulesParser#tipo_categoria}.
+	 * @param ctx the parse tree
+	 */
+	void exitTipo_categoria(TaskRulesParser.Tipo_categoriaContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link TaskRulesParser#local}.
+	 * @param ctx the parse tree
+	 */
+	void enterLocal(TaskRulesParser.LocalContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link TaskRulesParser#local}.
+	 * @param ctx the parse tree
+	 */
+	void exitLocal(TaskRulesParser.LocalContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link TaskRulesParser#data}.
 	 * @param ctx the parse tree
 	 */

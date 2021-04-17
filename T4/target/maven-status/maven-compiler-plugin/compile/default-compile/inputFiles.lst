@@ -1,8 +1,13 @@
 /home/yasuo/ufscar/compiladores/compiladorMonstrao/T4/target/generated-sources/antlr4/br/ufscar/dc/compiladores/compiladorTask/TaskRulesBaseListener.java
-/home/yasuo/ufscar/compiladores/compiladorMonstrao/T4/target/generated-sources/antlr4/br/ufscar/dc/compiladores/compiladorTask/TaskRulesLexer.java
 /home/yasuo/ufscar/compiladores/compiladorMonstrao/T4/target/generated-sources/antlr4/br/ufscar/dc/compiladores/compiladorTask/TaskRulesListener.java
 /home/yasuo/ufscar/compiladores/compiladorMonstrao/T4/target/generated-sources/antlr4/br/ufscar/dc/compiladores/compiladorTask/TaskRulesVisitor.java
-/home/yasuo/ufscar/compiladores/compiladorMonstrao/T4/target/generated-sources/antlr4/br/ufscar/dc/compiladores/compiladorTask/TaskRulesBaseVisitor.java
-/home/yasuo/ufscar/compiladores/compiladorMonstrao/T4/src/main/java/br/ufscar/dc/compiladores/compiladorTask/CustomErrorListener.java
+/home/yasuo/ufscar/compiladores/compiladorMonstrao/T4/src/main/java/br/ufscar/dc/compiladores/compiladorTask/AnalisadorSemantico.java
 /home/yasuo/ufscar/compiladores/compiladorMonstrao/T4/target/generated-sources/antlr4/br/ufscar/dc/compiladores/compiladorTask/TaskRulesParser.java
 /home/yasuo/ufscar/compiladores/compiladorMonstrao/T4/src/main/java/br/ufscar/dc/compiladores/compiladorTask/Principal.java
+/home/yasuo/ufscar/compiladores/compiladorMonstrao/T4/target/generated-sources/antlr4/br/ufscar/dc/compiladores/compiladorTask/TaskRulesLexer.java
+/home/yasuo/ufscar/compiladores/compiladorMonstrao/T4/src/main/java/br/ufscar/dc/compiladores/compiladorTask/GeradorCronoTask.java
+/home/yasuo/ufscar/compiladores/compiladorMonstrao/T4/src/main/java/br/ufscar/dc/compiladores/compiladorTask/Escopos.java
+/home/yasuo/ufscar/compiladores/compiladorMonstrao/T4/target/generated-sources/antlr4/br/ufscar/dc/compiladores/compiladorTask/TaskRulesBaseVisitor.java
+/home/yasuo/ufscar/compiladores/compiladorMonstrao/T4/src/main/java/br/ufscar/dc/compiladores/compiladorTask/CustomErrorListener.java
+/home/yasuo/ufscar/compiladores/compiladorMonstrao/T4/src/main/java/br/ufscar/dc/compiladores/compiladorTask/TabelaDeSimbolos.java
+/home/yasuo/ufscar/compiladores/compiladorMonstrao/T4/src/main/java/br/ufscar/dc/compiladores/compiladorTask/SemanticoUtils.java

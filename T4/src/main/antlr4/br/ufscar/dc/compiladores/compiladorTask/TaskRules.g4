@@ -17,6 +17,19 @@ ANO: [0-9][0-9][0-9][0-9]
 DESCRIPTION: 'description'
 ;
 
+CASA: 'casa';
+
+TRABALHO: 'trabalho';
+
+PROVA: 'prova';
+
+EXERCICIO: 'exercicio';
+
+EVENTOS: 'eventos';
+
+OUTROS: 'outros';
+
+
 // delimitadores
 ABRE_CHAVE: '{'
 ;
@@ -59,13 +72,24 @@ ERRO: .
 
 
 // sintaxe
-nome: 'name' ':' CADEIA ';'
+nome: 'name' ':' nome_tarefa=CADEIA_LINHA ';'
 ;
-data: 'date' ':' DIAMES '/' DIAMES '/' ANO ';'
+categoria: 'category' ':'   tipo_categoria  ';'
 ;
-descricao: 'description' ':' (CADEIA2|CADEIA) ';'
+
+tipo_categoria: ('casa'|'trabalho'| 'prova' | 'exercicio' | 'eventos' | 'outros')
 ;
-tarefa: 'task' '{' nome data descricao '}'
+
+local: 'local' ':' link=CADEIA_LINHA ';'
+;
+
+FORMATO_DATA: DIAMES '/' DIAMES '/' ANO;
+
+data: 'date' ':' FORMATO_DATA ';'
+;
+descricao: 'description' ':' desc=(CADEIA_LINHA|CADEIA_MULTILINHA) ';'
+;
+tarefa: 'task' '{' nome data local categoria descricao '}'
 ;
 tarefas: (tarefa)+
 ;
