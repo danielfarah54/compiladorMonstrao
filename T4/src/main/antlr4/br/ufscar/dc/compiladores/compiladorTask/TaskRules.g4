@@ -61,7 +61,7 @@ ERRO: .
 // sintaxe
 nome: 'name' ':' CADEIA ';'
 ;
-categoria: 'casa'|'trabalho'
+categoria: 'casa'|'trabalho'| 'prova' | 'exercicio' | 'eventos' | 'outros';
 ;
 
 local: CADEIA_LINHA

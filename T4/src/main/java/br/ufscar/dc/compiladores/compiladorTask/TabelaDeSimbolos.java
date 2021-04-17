@@ -22,17 +22,17 @@ public class TabelaDeSimbolos {
      
      public TarefaCategoria getTarefaCategoria(String categoria){
          switch(categoria){
-             case "PROVA":
+             case "prova":
                  return TarefaCategoria.PROVA;
-             case "TRABALHO":
+             case "trabalho":
                  return TarefaCategoria.TRABALHO;
-             case "EXERCICIO":
+             case "exercicio":
                  return TarefaCategoria.EXERCICIO;
-             case "CASA":
+             case "casa":
                  return TarefaCategoria.CASA;
-             case "EVENTOS":
+             case "eventos":
                  return TarefaCategoria.EVENTOS;
-             case "OUTROS":
+             case "outros":
                  return TarefaCategoria.OUTROS;
              default:
                 return TarefaCategoria.INVALIDO;
