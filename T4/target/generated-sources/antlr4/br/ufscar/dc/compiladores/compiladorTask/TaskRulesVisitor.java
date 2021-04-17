@@ -17,6 +17,18 @@ public interface TaskRulesVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitNome(TaskRulesParser.NomeContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link TaskRulesParser#categoria}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCategoria(TaskRulesParser.CategoriaContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link TaskRulesParser#local}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLocal(TaskRulesParser.LocalContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link TaskRulesParser#data}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

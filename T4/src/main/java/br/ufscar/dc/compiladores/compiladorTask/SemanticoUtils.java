@@ -18,7 +18,7 @@ public class SemanticoUtils {
         errosSemanticos.add(String.format("Linha %d: %s", linha, mensagem));
     }
 
-    public static boolean verificaAnoBissexto(int ano) {
+    private static boolean verificaAnoBissexto(int ano) {
         if (ano % 4 != 0) {
             return false;
         } else if (ano % 400 == 0) {
@@ -28,6 +28,17 @@ public class SemanticoUtils {
         } else {
             return true;
         }
+    }
+    
+    public static TabelaDeSimbolos.TarefaCategoria verificarTipo(TabelaDeSimbolos tabela, TaskRulesParser.CategoriaContext ctx){
+        
+        TabelaDeSimbolos.TarefaCategoria categoria = tabela.getTarefaCategoria(ctx.getText());
+        
+        if(categoria == TabelaDeSimbolos.TarefaCategoria.INVALIDO){
+            adicionarErroSemantico(ctx.start, "Categoria inválida");
+        }
+        
+        return categoria;
     }
 
     public static void verificarData(TaskRulesParser.DataContext ctx) {

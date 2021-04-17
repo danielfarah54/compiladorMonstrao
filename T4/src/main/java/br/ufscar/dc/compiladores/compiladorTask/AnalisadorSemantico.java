@@ -28,6 +28,7 @@ public class AnalisadorSemantico extends TaskRulesBaseVisitor<Void> {
     @Override
     public Void visitTarefa(TaskRulesParser.TarefaContext ctx) {
         visitData(ctx.data());
+        visitCategoria(ctx.categoria());
         return super.visitTarefa(ctx);
     }
 
@@ -41,5 +42,13 @@ public class AnalisadorSemantico extends TaskRulesBaseVisitor<Void> {
     public Void visitData(TaskRulesParser.DataContext ctx) {
         SemanticoUtils.verificarData(ctx);
         return super.visitData(ctx);
+    }
+    
+    @Override
+    public Void visitCategoria(TaskRulesParser.CategoriaContext ctx){
+        
+        SemanticoUtils.verificarTipo(escoposAninhados.obterEscopoAtual(), ctx);
+        
+        return super.visitCategoria(ctx);
     }
 }

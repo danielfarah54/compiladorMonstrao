@@ -61,11 +61,17 @@ ERRO: .
 // sintaxe
 nome: 'name' ':' CADEIA ';'
 ;
+categoria: 'casa'|'trabalho'
+;
+
+local: CADEIA_LINHA
+;
+
 data: 'date' ':' DIAMES '/' DIAMES '/' ANO ';'
 ;
 descricao: 'description' ':' (CADEIA2|CADEIA) ';'
 ;
-tarefa: 'task' '{' nome data descricao '}'
+tarefa: 'task' '{' nome data local categoria descricao '}'
 ;
 tarefas: (tarefa)+
 ;
