@@ -72,7 +72,7 @@ ERRO: .
 
 
 // sintaxe
-nome: 'name' ':' CADEIA_LINHA ';'
+nome: 'name' ':' nome_tarefa=CADEIA_LINHA ';'
 ;
 categoria: 'category' ':'   tipo_categoria  ';'
 ;

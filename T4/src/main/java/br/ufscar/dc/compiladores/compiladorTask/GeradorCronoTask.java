@@ -64,7 +64,7 @@ public class GeradorCronoTask extends TaskRulesBaseVisitor<Void> {
                             +"<div class=\"portfolio-caption\">\n"
                                 +"<h4>");
 
-            saida.append(tc.nome().getText());
+            saida.append(tc.nome().getText().split("\"")[1]);
             saida.append("</h4>\n<p class=\"text-muted\">");
             saida.append(tc.categoria().tipo_categoria().getText());       
             saida.append("</p>\n</div>\n</div>");
@@ -100,9 +100,9 @@ public class GeradorCronoTask extends TaskRulesBaseVisitor<Void> {
         i=0;
         for(TaskRulesParser.TarefaContext tc : ctx.tarefas().tarefa()){
             saida.append("<!-- AQUI TEMOS QUE COLOCAR NO FOR NO PROGRAMA REPETINDO ESSA DIV DE BAIXO -->\n"
-            +"<div class=\"modal fade portfolio-modal text-center\" role=\"dialog\" tabindex=\"-1\" id=\"\n");
+            +"<div class=\"modal fade portfolio-modal text-center\" role=\"dialog\" tabindex=\"-1\" id=\"");
             
-            saida.append("Portfolio"+i);
+            saida.append("#Portfolio"+i);
             saida.append("\">\n"
                 +"<div class=\"modal-dialog modal-lg\" role=\"document\">\n"
                     +"<div class=\"modal-content\">\n"
@@ -114,7 +114,7 @@ public class GeradorCronoTask extends TaskRulesBaseVisitor<Void> {
                                             +"<!-- Aqui pegar o mesmo nome da Tarefa  -->\n"
                                             +"<h2 class=\"text-uppercase\">");
                                             
-            saida.append(tc.nome().getText());                  
+            saida.append(tc.nome().getText().split("\"")[1]);                  
             saida.append("</h2>\n"
                             +"<p class=\"item-intro text-muted\">");
                                             

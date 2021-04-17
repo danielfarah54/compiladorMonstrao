@@ -103,10 +103,11 @@ public class TaskRulesParser extends Parser {
 	}
 
 	public static class NomeContext extends ParserRuleContext {
+		public Token nome_tarefa;
 		public TerminalNode NAME() { return getToken(TaskRulesParser.NAME, 0); }
 		public TerminalNode DOIS_PONTOS() { return getToken(TaskRulesParser.DOIS_PONTOS, 0); }
-		public TerminalNode CADEIA_LINHA() { return getToken(TaskRulesParser.CADEIA_LINHA, 0); }
 		public TerminalNode PONTO_VIRGULA() { return getToken(TaskRulesParser.PONTO_VIRGULA, 0); }
+		public TerminalNode CADEIA_LINHA() { return getToken(TaskRulesParser.CADEIA_LINHA, 0); }
 		public NomeContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -137,7 +138,7 @@ public class TaskRulesParser extends Parser {
 			setState(19);
 			match(DOIS_PONTOS);
 			setState(20);
-			match(CADEIA_LINHA);
+			((NomeContext)_localctx).nome_tarefa = match(CADEIA_LINHA);
 			setState(21);
 			match(PONTO_VIRGULA);
 			}
