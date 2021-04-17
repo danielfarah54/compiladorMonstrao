@@ -21,17 +21,7 @@ public class SemanticoUtils {
         errosSemanticos.add(String.format("Linha %d: %s", linha, mensagem));
     }
 
-    private static boolean verificaAnoBissexto(int ano) {
-        if (ano % 4 != 0) {
-            return false;
-        } else if (ano % 400 == 0) {
-            return true;
-        } else if (ano % 100 == 0) {
-            return false;
-        } else {
-            return true;
-        }
-    }
+
     
     public static TabelaDeSimbolos.TarefaCategoria verificarTipo(TabelaDeSimbolos tabela, TaskRulesParser.Tipo_categoriaContext ctx){
         
@@ -49,13 +39,13 @@ public class SemanticoUtils {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         
         try{
-            LocalDate dataEntrada = LocalDate.parse(ctx.getText(), formatter);
+            LocalDate dataEntrada = LocalDate.parse(ctx.FORMATO_DATA().getText(), formatter);
             
             if(dataAtual.isAfter(dataEntrada)){
-                adicionarErroSemantico(ctx.start, "Data inválida");
+                adicionarErroSemantico(ctx.start, "Data "+ctx.FORMATO_DATA().getText()+" inválida");
             }
         }catch (DateTimeParseException e){
-             adicionarErroSemantico(ctx.start, "Data inválida");
+             adicionarErroSemantico(ctx.start, "Data "+ctx.FORMATO_DATA().getText()+" inválida");
         }
     }
 }

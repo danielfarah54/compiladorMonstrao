@@ -6,13 +6,15 @@
 package br.ufscar.dc.compiladores.compiladorTask;
 
 import static br.ufscar.dc.compiladores.compiladorTask.SemanticoUtils.adicionarErroSemantico;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import org.antlr.v4.runtime.Token;
 
 public class AnalisadorSemantico extends TaskRulesBaseVisitor<Void> {
 
     static Escopos escopo = new Escopos();
-    HashMap<String, String> tabelaTask = new HashMap<>();
+    HashMap<String, List<TaskRulesParser.TarefaContext>> tabelaTask = new HashMap<>();
 
     public void adicionarTarefaNoEscopo(String nome, String tipo, Token nomeT, Token tipoT) {
         TabelaDeSimbolos tabela = escopo.obterEscopoAtual();
@@ -20,7 +22,7 @@ public class AnalisadorSemantico extends TaskRulesBaseVisitor<Void> {
         TabelaDeSimbolos.TarefaCategoria categoria = tabela.getTarefaCategoria(tipo);
 
         if (categoria == TabelaDeSimbolos.TarefaCategoria.INVALIDO) {
-            SemanticoUtils.adicionarErroSemantico(tipoT, "Categoria " + tipo + " inválido");
+            SemanticoUtils.adicionarErroSemantico(tipoT, "Categoria " + tipo + " inválida");
         } else {
             tabela.inserir(nome, categoria);
         }
@@ -32,35 +34,45 @@ public class AnalisadorSemantico extends TaskRulesBaseVisitor<Void> {
         return super.visitPrograma(ctx);
     }
 
+    /*
     @Override
     public Void visitTarefas(TaskRulesParser.TarefasContext ctx) {
-        for (TaskRulesParser.TarefaContext tc : ctx.tarefa()) {
-            visitTarefa(tc);
-        }
+
         return super.visitTarefas(ctx);
-    }
+    }*/
 
     @Override
     public Void visitTarefa(TaskRulesParser.TarefaContext ctx) {
-        if (tabelaTask.containsKey(ctx.TASK().getText())) {
-            if (tabelaTask.get(ctx.TASK().getText()).equals(ctx.data().getText())) {
-                adicionarErroSemantico(ctx.start, "Tarefa já foi declarada anteriormente");
-            }else{
-                adicionarTarefaNoEscopo(ctx.TASK().getText(), ctx.categoria().getText(), ctx.TASK().getSymbol(), ctx.categoria().getStart());
+        boolean semErro = true;
+        if (tabelaTask.containsKey(ctx.nome().getText())) {
+            System.out.println("Entrou");
+            for (TaskRulesParser.TarefaContext tc : tabelaTask.get(ctx.nome().getText())) {
+                if ((ctx.nome().getText().equals(tc.nome().getText())) && (ctx.data().getText().equals(tc.data().getText()))
+                        && (ctx.categoria().getText().equals(tc.categoria().getText())) && (ctx.local().getText().equals(tc.local().getText()))) {
+
+                    adicionarErroSemantico(ctx.start, "Tarefa " + ctx.nome().getText() + " já foi declarada anteriormente");
+                    semErro = false;
+                    break;
+
+                }
+
             }
-        }else{
-            adicionarTarefaNoEscopo(ctx.TASK().getText(), ctx.categoria().getText(), ctx.TASK().getSymbol(), ctx.categoria().getStart());
+            if (semErro) {
+                adicionarTarefaNoEscopo(ctx.nome().getText(), ctx.categoria().tipo_categoria().getText(), ctx.TASK().getSymbol(), ctx.categoria().tipo_categoria().getStart());
+                tabelaTask.get(ctx.nome().getText()).add(ctx);
+            }
+
+        } else {
+            System.out.println("Entrou no else");
+            adicionarTarefaNoEscopo(ctx.nome().getText(), ctx.categoria().tipo_categoria().getText(), ctx.TASK().getSymbol(), ctx.categoria().tipo_categoria().getStart());
+            List<TaskRulesParser.TarefaContext> listaTarefas = new ArrayList<TaskRulesParser.TarefaContext>();
+            listaTarefas.add(ctx);
+            tabelaTask.put(ctx.nome().getText(), listaTarefas);
         }
-        visitData(ctx.data());
-        visitCategoria(ctx.categoria());
+
         return super.visitTarefa(ctx);
     }
 
-    @Override
-    public Void visitNome(TaskRulesParser.NomeContext ctx) {
-
-        return super.visitNome(ctx);
-    }
 
     @Override
     public Void visitData(TaskRulesParser.DataContext ctx) {
@@ -70,9 +82,7 @@ public class AnalisadorSemantico extends TaskRulesBaseVisitor<Void> {
 
     @Override
     public Void visitCategoria(TaskRulesParser.CategoriaContext ctx) {
-
         SemanticoUtils.verificarTipo(escopo.obterEscopoAtual(), ctx.tipo_categoria());
-
         return super.visitCategoria(ctx);
     }
 }

@@ -13,7 +13,7 @@ cronograma {
 	task {
 		name: "Tarefa 2";
 		date: 20/04/2021;
-		local: "local 1";
+		local: "local 2";
 		category: casa;
 		description: "alguma coisa";
 	}

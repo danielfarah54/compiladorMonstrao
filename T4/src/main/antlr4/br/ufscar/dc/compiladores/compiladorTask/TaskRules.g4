@@ -80,12 +80,14 @@ categoria: 'category' ':'   tipo_categoria  ';'
 tipo_categoria: ('casa'|'trabalho'| 'prova' | 'exercicio' | 'eventos' | 'outros')
 ;
 
-local: 'local' ':' CADEIA_LINHA ';'
+local: 'local' ':' link=CADEIA_LINHA ';'
 ;
 
-data: 'date' ':' DIAMES '/' DIAMES '/' ANO ';'
+FORMATO_DATA: DIAMES '/' DIAMES '/' ANO;
+
+data: 'date' ':' FORMATO_DATA ';'
 ;
-descricao: 'description' ':' (CADEIA2|CADEIA) ';'
+descricao: 'description' ':' desc=(CADEIA_LINHA|CADEIA_MULTILINHA) ';'
 ;
 tarefa: 'task' '{' nome data local categoria descricao '}'
 ;

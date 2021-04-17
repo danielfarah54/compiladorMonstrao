@@ -1,7 +1,6 @@
 package br.ufscar.dc.compiladores.compiladorTask;
 
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import org.antlr.v4.runtime.CharStream;
@@ -61,8 +60,26 @@ public class Principal {
             lex.reset();
 
             // Inicia o analisador sintático
-            parser.programa();
-            pw.println("Fim da compilacao");
+            //parser.programa();
+            TaskRulesParser.ProgramaContext arvore = parser.programa();
+            AnalisadorSemantico as = new AnalisadorSemantico();
+            as.visitPrograma(arvore);
+            
+              if(SemanticoUtils.errosSemanticos.isEmpty()){
+
+                GeradorCronoTask aux = new GeradorCronoTask();
+                aux.visitPrograma(arvore);
+                pw.print(aux.saida.toString());
+
+            }else{
+                 for(String erros : SemanticoUtils.errosSemanticos){
+                    pw.println(erros);
+                    
+                 }
+                 pw.println("Fim da compilacao");
+            }
+            
+            //pw.println("Fim da compilacao");
             pw.close();
 
         } catch (IOException ex) {
