@@ -64,7 +64,7 @@ nome: 'name' ':' CADEIA ';'
 categoria: 'category' ':'  tipo_categoria ';'
 ;
 
-tipo_categoria: ('casa'|'trabalho'| 'prova' | 'exercicio' | 'eventos' | 'outros')
+tipo_categoria: '"' ('casa'|'trabalho'| 'prova' | 'exercicio' | 'eventos' | 'outros') '"'
 ;
 
 local: 'local' ':' CADEIA_LINHA ';'
