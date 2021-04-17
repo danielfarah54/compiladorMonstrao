@@ -64,7 +64,7 @@ public class GeradorCronoTask extends TaskRulesBaseVisitor<Void> {
                             +"<div class=\"portfolio-caption\">\n"
                                 +"<h4>");
 
-            saida.append(tc.nome().getText().split("\"")[1]);
+            saida.append(tc.nome().nome_tarefa.getText().split("\"")[1]);
             saida.append("</h4>\n<p class=\"text-muted\">");
             saida.append(tc.categoria().tipo_categoria().getText());       
             saida.append("</p>\n</div>\n</div>");
@@ -102,7 +102,7 @@ public class GeradorCronoTask extends TaskRulesBaseVisitor<Void> {
             saida.append("<!-- AQUI TEMOS QUE COLOCAR NO FOR NO PROGRAMA REPETINDO ESSA DIV DE BAIXO -->\n"
             +"<div class=\"modal fade portfolio-modal text-center\" role=\"dialog\" tabindex=\"-1\" id=\"");
             
-            saida.append("#Portfolio"+i);
+            saida.append("Portfolio"+i);
             saida.append("\">\n"
                 +"<div class=\"modal-dialog modal-lg\" role=\"document\">\n"
                     +"<div class=\"modal-content\">\n"
@@ -114,7 +114,7 @@ public class GeradorCronoTask extends TaskRulesBaseVisitor<Void> {
                                             +"<!-- Aqui pegar o mesmo nome da Tarefa  -->\n"
                                             +"<h2 class=\"text-uppercase\">");
                                             
-            saida.append(tc.nome().getText().split("\"")[1]);                  
+            saida.append(tc.nome().nome_tarefa.getText().split("\"")[1]);                  
             saida.append("</h2>\n"
                             +"<p class=\"item-intro text-muted\">");
                                             
@@ -124,14 +124,14 @@ public class GeradorCronoTask extends TaskRulesBaseVisitor<Void> {
                                 +"class=\"img-fluid d-block mx-auto\" src=\"assets/img/portfolio/1-full.jpg\">\n"
                             +"<p>"); 
                                             
-            saida.append(tc.descricao().desc);
+            saida.append(tc.descricao().desc.getText().split("\"")[1]);
             saida.append(                                    
                          "   </p>\n"
                             +"<!-- Aqui em SRC colocamos o link extraido do GOOGLE MAPS DA LOCALIDADE  -->\n"
                             +"<iframe"
                                 +"src=\"");
                                                 
-            saida.append(tc.local().link);
+            saida.append(tc.local().link.getText());
             saida.append(
                          "               \""
                                         +"width=100% height=100% frameborder=\"0\" style=\"border:0;\" allowfullscreen=\"\""
@@ -140,6 +140,7 @@ public class GeradorCronoTask extends TaskRulesBaseVisitor<Void> {
                                     +"<button class=\"btn btn-primary\" data-dismiss=\"modal\" type=\"button\"><i"
                                             +"class=\"fa fa-times\"></i><span>&nbsp;Fechar Tarefa</span></button>\n"
                                 +"</div>\n</div>\n</div>\n</div>\n</div>\n</div>\n</div>\n</div>\n");
+        i++;
         }
 
 
