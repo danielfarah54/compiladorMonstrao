@@ -17,11 +17,11 @@ public class TaskRulesParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, T__6=7, T__7=8, T__8=9, 
-		T__9=10, T__10=11, CRONOGRAMA=12, TASK=13, NAME=14, DIAMES=15, ANO=16, 
-		DESCRIPTION=17, ABRE_CHAVE=18, FECHA_CHAVE=19, DOIS_PONTOS=20, PONTO_VIRGULA=21, 
-		INT=22, CADEIA_LINHA_NAO_FECHADA=23, CADEIA_LINHA=24, CADEIA_MULTILINHA_NAO_FECHADA=25, 
-		CADEIA_MULTILINHA=26, COMENTARIO=27, WS=28, ERRO=29, CADEIA=30, CADEIA2=31;
+		T__0=1, T__1=2, T__2=3, T__3=4, CRONOGRAMA=5, TASK=6, NAME=7, DIAMES=8, 
+		ANO=9, DESCRIPTION=10, CASA=11, TRABALHO=12, PROVA=13, EXERCICIO=14, EVENTOS=15, 
+		OUTROS=16, ABRE_CHAVE=17, FECHA_CHAVE=18, DOIS_PONTOS=19, PONTO_VIRGULA=20, 
+		INT=21, CADEIA_LINHA_NAO_FECHADA=22, CADEIA_LINHA=23, CADEIA_MULTILINHA_NAO_FECHADA=24, 
+		CADEIA_MULTILINHA=25, COMENTARIO=26, WS=27, ERRO=28, CADEIA2=29, CADEIA=30;
 	public static final int
 		RULE_nome = 0, RULE_categoria = 1, RULE_tipo_categoria = 2, RULE_local = 3, 
 		RULE_data = 4, RULE_descricao = 5, RULE_tarefa = 6, RULE_tarefas = 7, 
@@ -36,20 +36,19 @@ public class TaskRulesParser extends Parser {
 
 	private static String[] makeLiteralNames() {
 		return new String[] {
-			null, "'category'", "'\"'", "'casa'", "'trabalho'", "'prova'", "'exercicio'", 
-			"'eventos'", "'outros'", "'local'", "'date'", "'/'", "'cronograma'", 
-			"'task'", "'name'", null, null, "'description'", "'{'", "'}'", "':'", 
-			"';'"
+			null, "'category'", "'local'", "'date'", "'/'", "'cronograma'", "'task'", 
+			"'name'", null, null, "'description'", "'casa'", "'trabalho'", "'prova'", 
+			"'exercicio'", "'eventos'", "'outros'", "'{'", "'}'", "':'", "';'"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
-			null, null, null, null, null, null, null, null, null, null, null, null, 
-			"CRONOGRAMA", "TASK", "NAME", "DIAMES", "ANO", "DESCRIPTION", "ABRE_CHAVE", 
-			"FECHA_CHAVE", "DOIS_PONTOS", "PONTO_VIRGULA", "INT", "CADEIA_LINHA_NAO_FECHADA", 
-			"CADEIA_LINHA", "CADEIA_MULTILINHA_NAO_FECHADA", "CADEIA_MULTILINHA", 
-			"COMENTARIO", "WS", "ERRO", "CADEIA", "CADEIA2"
+			null, null, null, null, null, "CRONOGRAMA", "TASK", "NAME", "DIAMES", 
+			"ANO", "DESCRIPTION", "CASA", "TRABALHO", "PROVA", "EXERCICIO", "EVENTOS", 
+			"OUTROS", "ABRE_CHAVE", "FECHA_CHAVE", "DOIS_PONTOS", "PONTO_VIRGULA", 
+			"INT", "CADEIA_LINHA_NAO_FECHADA", "CADEIA_LINHA", "CADEIA_MULTILINHA_NAO_FECHADA", 
+			"CADEIA_MULTILINHA", "COMENTARIO", "WS", "ERRO", "CADEIA2", "CADEIA"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -106,7 +105,7 @@ public class TaskRulesParser extends Parser {
 	public static class NomeContext extends ParserRuleContext {
 		public TerminalNode NAME() { return getToken(TaskRulesParser.NAME, 0); }
 		public TerminalNode DOIS_PONTOS() { return getToken(TaskRulesParser.DOIS_PONTOS, 0); }
-		public TerminalNode CADEIA() { return getToken(TaskRulesParser.CADEIA, 0); }
+		public TerminalNode CADEIA_LINHA() { return getToken(TaskRulesParser.CADEIA_LINHA, 0); }
 		public TerminalNode PONTO_VIRGULA() { return getToken(TaskRulesParser.PONTO_VIRGULA, 0); }
 		public NomeContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -138,7 +137,7 @@ public class TaskRulesParser extends Parser {
 			setState(19);
 			match(DOIS_PONTOS);
 			setState(20);
-			match(CADEIA);
+			match(CADEIA_LINHA);
 			setState(21);
 			match(PONTO_VIRGULA);
 			}
@@ -190,12 +189,8 @@ public class TaskRulesParser extends Parser {
 			setState(24);
 			match(DOIS_PONTOS);
 			setState(25);
-			match(T__1);
-			setState(26);
 			tipo_categoria();
-			setState(27);
-			match(T__1);
-			setState(28);
+			setState(26);
 			match(PONTO_VIRGULA);
 			}
 		}
@@ -211,6 +206,12 @@ public class TaskRulesParser extends Parser {
 	}
 
 	public static class Tipo_categoriaContext extends ParserRuleContext {
+		public TerminalNode CASA() { return getToken(TaskRulesParser.CASA, 0); }
+		public TerminalNode TRABALHO() { return getToken(TaskRulesParser.TRABALHO, 0); }
+		public TerminalNode PROVA() { return getToken(TaskRulesParser.PROVA, 0); }
+		public TerminalNode EXERCICIO() { return getToken(TaskRulesParser.EXERCICIO, 0); }
+		public TerminalNode EVENTOS() { return getToken(TaskRulesParser.EVENTOS, 0); }
+		public TerminalNode OUTROS() { return getToken(TaskRulesParser.OUTROS, 0); }
 		public Tipo_categoriaContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -237,9 +238,9 @@ public class TaskRulesParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(30);
+			setState(28);
 			_la = _input.LA(1);
-			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__2) | (1L << T__3) | (1L << T__4) | (1L << T__5) | (1L << T__6) | (1L << T__7))) != 0)) ) {
+			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << CASA) | (1L << TRABALHO) | (1L << PROVA) | (1L << EXERCICIO) | (1L << EVENTOS) | (1L << OUTROS))) != 0)) ) {
 			_errHandler.recoverInline(this);
 			}
 			else {
@@ -289,13 +290,13 @@ public class TaskRulesParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(32);
-			match(T__8);
-			setState(33);
+			setState(30);
+			match(T__1);
+			setState(31);
 			match(DOIS_PONTOS);
-			setState(34);
+			setState(32);
 			match(CADEIA_LINHA);
-			setState(35);
+			setState(33);
 			match(PONTO_VIRGULA);
 			}
 		}
@@ -343,21 +344,21 @@ public class TaskRulesParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(37);
-			match(T__9);
-			setState(38);
+			setState(35);
+			match(T__2);
+			setState(36);
 			match(DOIS_PONTOS);
+			setState(37);
+			match(DIAMES);
+			setState(38);
+			match(T__3);
 			setState(39);
 			match(DIAMES);
 			setState(40);
-			match(T__10);
+			match(T__3);
 			setState(41);
-			match(DIAMES);
-			setState(42);
-			match(T__10);
-			setState(43);
 			match(ANO);
-			setState(44);
+			setState(42);
 			match(PONTO_VIRGULA);
 			}
 		}
@@ -404,13 +405,13 @@ public class TaskRulesParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(46);
+			setState(44);
 			match(DESCRIPTION);
-			setState(47);
+			setState(45);
 			match(DOIS_PONTOS);
-			setState(48);
+			setState(46);
 			_la = _input.LA(1);
-			if ( !(_la==CADEIA || _la==CADEIA2) ) {
+			if ( !(_la==CADEIA2 || _la==CADEIA) ) {
 			_errHandler.recoverInline(this);
 			}
 			else {
@@ -418,7 +419,7 @@ public class TaskRulesParser extends Parser {
 				_errHandler.reportMatch(this);
 				consume();
 			}
-			setState(49);
+			setState(47);
 			match(PONTO_VIRGULA);
 			}
 		}
@@ -477,21 +478,21 @@ public class TaskRulesParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(51);
+			setState(49);
 			match(TASK);
-			setState(52);
+			setState(50);
 			match(ABRE_CHAVE);
-			setState(53);
+			setState(51);
 			nome();
-			setState(54);
+			setState(52);
 			data();
-			setState(55);
+			setState(53);
 			local();
-			setState(56);
+			setState(54);
 			categoria();
-			setState(57);
+			setState(55);
 			descricao();
-			setState(58);
+			setState(56);
 			match(FECHA_CHAVE);
 			}
 		}
@@ -539,17 +540,17 @@ public class TaskRulesParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(61); 
+			setState(59); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
 				{
-				setState(60);
+				setState(58);
 				tarefa();
 				}
 				}
-				setState(63); 
+				setState(61); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			} while ( _la==TASK );
@@ -598,13 +599,13 @@ public class TaskRulesParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(65);
+			setState(63);
 			match(CRONOGRAMA);
-			setState(66);
+			setState(64);
 			match(ABRE_CHAVE);
-			setState(67);
+			setState(65);
 			tarefas();
-			setState(68);
+			setState(66);
 			match(FECHA_CHAVE);
 			}
 		}
@@ -620,23 +621,22 @@ public class TaskRulesParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3!I\4\2\t\2\4\3\t\3"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3 G\4\2\t\2\4\3\t\3"+
 		"\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\3\2\3\2\3\2\3"+
-		"\2\3\2\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\4\3\4\3\5\3\5\3\5\3\5\3\5\3\6\3\6"+
-		"\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\7\3\7\3\7\3\7\3\7\3\b\3\b\3\b\3\b\3\b\3"+
-		"\b\3\b\3\b\3\b\3\t\6\t@\n\t\r\t\16\tA\3\n\3\n\3\n\3\n\3\n\3\n\2\2\13\2"+
-		"\4\6\b\n\f\16\20\22\2\4\3\2\5\n\3\2 !\2@\2\24\3\2\2\2\4\31\3\2\2\2\6 "+
-		"\3\2\2\2\b\"\3\2\2\2\n\'\3\2\2\2\f\60\3\2\2\2\16\65\3\2\2\2\20?\3\2\2"+
-		"\2\22C\3\2\2\2\24\25\7\20\2\2\25\26\7\26\2\2\26\27\7 \2\2\27\30\7\27\2"+
-		"\2\30\3\3\2\2\2\31\32\7\3\2\2\32\33\7\26\2\2\33\34\7\4\2\2\34\35\5\6\4"+
-		"\2\35\36\7\4\2\2\36\37\7\27\2\2\37\5\3\2\2\2 !\t\2\2\2!\7\3\2\2\2\"#\7"+
-		"\13\2\2#$\7\26\2\2$%\7\32\2\2%&\7\27\2\2&\t\3\2\2\2\'(\7\f\2\2()\7\26"+
-		"\2\2)*\7\21\2\2*+\7\r\2\2+,\7\21\2\2,-\7\r\2\2-.\7\22\2\2./\7\27\2\2/"+
-		"\13\3\2\2\2\60\61\7\23\2\2\61\62\7\26\2\2\62\63\t\3\2\2\63\64\7\27\2\2"+
-		"\64\r\3\2\2\2\65\66\7\17\2\2\66\67\7\24\2\2\678\5\2\2\289\5\n\6\29:\5"+
-		"\b\5\2:;\5\4\3\2;<\5\f\7\2<=\7\25\2\2=\17\3\2\2\2>@\5\16\b\2?>\3\2\2\2"+
-		"@A\3\2\2\2A?\3\2\2\2AB\3\2\2\2B\21\3\2\2\2CD\7\16\2\2DE\7\24\2\2EF\5\20"+
-		"\t\2FG\7\25\2\2G\23\3\2\2\2\3A";
+		"\2\3\2\3\3\3\3\3\3\3\3\3\3\3\4\3\4\3\5\3\5\3\5\3\5\3\5\3\6\3\6\3\6\3\6"+
+		"\3\6\3\6\3\6\3\6\3\6\3\7\3\7\3\7\3\7\3\7\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3"+
+		"\b\3\b\3\t\6\t>\n\t\r\t\16\t?\3\n\3\n\3\n\3\n\3\n\3\n\2\2\13\2\4\6\b\n"+
+		"\f\16\20\22\2\4\3\2\r\22\3\2\37 \2>\2\24\3\2\2\2\4\31\3\2\2\2\6\36\3\2"+
+		"\2\2\b \3\2\2\2\n%\3\2\2\2\f.\3\2\2\2\16\63\3\2\2\2\20=\3\2\2\2\22A\3"+
+		"\2\2\2\24\25\7\t\2\2\25\26\7\25\2\2\26\27\7\31\2\2\27\30\7\26\2\2\30\3"+
+		"\3\2\2\2\31\32\7\3\2\2\32\33\7\25\2\2\33\34\5\6\4\2\34\35\7\26\2\2\35"+
+		"\5\3\2\2\2\36\37\t\2\2\2\37\7\3\2\2\2 !\7\4\2\2!\"\7\25\2\2\"#\7\31\2"+
+		"\2#$\7\26\2\2$\t\3\2\2\2%&\7\5\2\2&\'\7\25\2\2\'(\7\n\2\2()\7\6\2\2)*"+
+		"\7\n\2\2*+\7\6\2\2+,\7\13\2\2,-\7\26\2\2-\13\3\2\2\2./\7\f\2\2/\60\7\25"+
+		"\2\2\60\61\t\3\2\2\61\62\7\26\2\2\62\r\3\2\2\2\63\64\7\b\2\2\64\65\7\23"+
+		"\2\2\65\66\5\2\2\2\66\67\5\n\6\2\678\5\b\5\289\5\4\3\29:\5\f\7\2:;\7\24"+
+		"\2\2;\17\3\2\2\2<>\5\16\b\2=<\3\2\2\2>?\3\2\2\2?=\3\2\2\2?@\3\2\2\2@\21"+
+		"\3\2\2\2AB\7\7\2\2BC\7\23\2\2CD\5\20\t\2DE\7\24\2\2E\23\3\2\2\2\3?";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

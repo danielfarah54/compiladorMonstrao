@@ -39,24 +39,19 @@ public class Principal {
                 // Cadeia não fechada
                 if (TaskRulesLexer.VOCABULARY.getDisplayName(t.getType()).equals("CADEIA_LINHA_NAO_FECHADA")) {
                     pw.println("Linha " + (lex.getLine() - 1) + ": cadeia literal nao fechada");
-                    pw.println("Fim da compilacao");
-                    pw.close();
-                    return;
+
+
                 }
                 
                 if (TaskRulesLexer.VOCABULARY.getDisplayName(t.getType()).equals("CADEIA_MULTILINHA_NAO_FECHADA")) {
                     pw.println("Linha " + (lex.getLine() - 1) + ": cadeia literal nao fechada");
-                    pw.println("Fim da compilacao");
-                    pw.close();
-                    return;
+
                 }
                 
                 // Símbolo não identificado
                 if (TaskRulesLexer.VOCABULARY.getDisplayName(t.getType()).equals("ERRO")) {
                     pw.println("Linha " + lex.getLine() + ": " + t.getText() + " - simbolo nao identificado");
-                    pw.println("Fim da compilacao");
-                    pw.close();
-                    return;
+
                 }
             }
             
@@ -67,6 +62,7 @@ public class Principal {
 
             // Inicia o analisador sintático
             parser.programa();
+            pw.println("Fim da compilacao");
             pw.close();
 
         } catch (IOException ex) {

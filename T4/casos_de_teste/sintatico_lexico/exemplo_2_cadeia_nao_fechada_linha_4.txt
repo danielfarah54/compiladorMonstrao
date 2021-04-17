@@ -5,12 +5,16 @@ cronograma {
 
 		# data do prazo
 		date: 24/04/2021;
+		local: "local 1";
+		category: casa;
 		description: "descrição da terefa";
 	}
 
 	task {
 		name: "Tarefa 2";
 		date: 20/04/2021;
+		local: "local 1";
+		category: casa;
 		description: "alguma coisa";
 	}
 }

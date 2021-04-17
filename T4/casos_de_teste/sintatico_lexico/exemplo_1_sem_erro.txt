@@ -6,7 +6,7 @@ cronograma {
 		# data do prazo
 		date: 20/04/2021;
 		local: "local 1";
-		category: "casa";
+		category: casa;
 		description: "primeira tarefa";
 	}
 
@@ -14,7 +14,7 @@ cronograma {
 		name: "Tarefa 2";
 		date: 21/04/2021;
 		local: "local 2";
-		category: "trabalho";
+		category: trabalho;
 		description: "segunda tarefa";
 	}
 }

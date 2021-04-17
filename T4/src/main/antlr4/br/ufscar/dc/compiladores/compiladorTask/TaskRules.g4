@@ -17,6 +17,19 @@ ANO: [0-9][0-9][0-9][0-9]
 DESCRIPTION: 'description'
 ;
 
+CASA: 'casa';
+
+TRABALHO: 'trabalho';
+
+PROVA: 'prova';
+
+EXERCICIO: 'exercicio';
+
+EVENTOS: 'eventos';
+
+OUTROS: 'outros';
+
+
 // delimitadores
 ABRE_CHAVE: '{'
 ;
@@ -59,9 +72,9 @@ ERRO: .
 
 
 // sintaxe
-nome: 'name' ':' CADEIA ';'
+nome: 'name' ':' CADEIA_LINHA ';'
 ;
-categoria: 'category' ':'  '"' tipo_categoria '"' ';'
+categoria: 'category' ':'   tipo_categoria  ';'
 ;
 
 tipo_categoria: ('casa'|'trabalho'| 'prova' | 'exercicio' | 'eventos' | 'outros')
