@@ -23,6 +23,12 @@ public interface TaskRulesVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitCategoria(TaskRulesParser.CategoriaContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link TaskRulesParser#tipo_categoria}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitTipo_categoria(TaskRulesParser.Tipo_categoriaContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link TaskRulesParser#local}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

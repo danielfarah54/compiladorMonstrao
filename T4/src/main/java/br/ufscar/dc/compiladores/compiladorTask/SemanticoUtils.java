@@ -33,7 +33,7 @@ public class SemanticoUtils {
         }
     }
     
-    public static TabelaDeSimbolos.TarefaCategoria verificarTipo(TabelaDeSimbolos tabela, TaskRulesParser.CategoriaContext ctx){
+    public static TabelaDeSimbolos.TarefaCategoria verificarTipo(TabelaDeSimbolos tabela, TaskRulesParser.Tipo_categoriaContext ctx){
         
         TabelaDeSimbolos.TarefaCategoria categoria = tabela.getTarefaCategoria(ctx.getText());
         

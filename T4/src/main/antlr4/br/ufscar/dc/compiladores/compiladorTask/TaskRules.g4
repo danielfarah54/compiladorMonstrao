@@ -61,10 +61,13 @@ ERRO: .
 // sintaxe
 nome: 'name' ':' CADEIA ';'
 ;
-categoria: 'casa'|'trabalho'| 'prova' | 'exercicio' | 'eventos' | 'outros';
+categoria: 'category' ':'  tipo_categoria ';'
 ;
 
-local: CADEIA_LINHA
+tipo_categoria: ('casa'|'trabalho'| 'prova' | 'exercicio' | 'eventos' | 'outros')
+;
+
+local: 'local' ':' CADEIA_LINHA ';'
 ;
 
 data: 'date' ':' DIAMES '/' DIAMES '/' ANO ';'

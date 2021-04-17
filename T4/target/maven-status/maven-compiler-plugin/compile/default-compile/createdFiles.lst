@@ -1,4 +1,5 @@
 br/ufscar/dc/compiladores/compiladorTask/AnalisadorSemantico.class
+br/ufscar/dc/compiladores/compiladorTask/TaskRulesParser$Tipo_categoriaContext.class
 br/ufscar/dc/compiladores/compiladorTask/TabelaDeSimbolos$TarefaCategoria.class
 br/ufscar/dc/compiladores/compiladorTask/TaskRulesBaseListener.class
 br/ufscar/dc/compiladores/compiladorTask/TaskRulesParser$DescricaoContext.class

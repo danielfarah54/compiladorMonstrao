@@ -71,7 +71,7 @@ public class AnalisadorSemantico extends TaskRulesBaseVisitor<Void> {
     @Override
     public Void visitCategoria(TaskRulesParser.CategoriaContext ctx) {
 
-        SemanticoUtils.verificarTipo(escopo.obterEscopoAtual(), ctx);
+        SemanticoUtils.verificarTipo(escopo.obterEscopoAtual(), ctx.tipo_categoria());
 
         return super.visitCategoria(ctx);
     }

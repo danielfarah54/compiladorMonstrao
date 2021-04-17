@@ -1,5 +1,5 @@
 package br.ufscar.dc.compiladores.compiladorTask;
-
+/*
 import br.ufscar.dc.compiladores.compiladorTask.TabelaDeSimbolos.TipoCronoTask;
 
 public class CronoTaskGeradorHTML extends RegrasBaseVisitor<Void> {
@@ -181,4 +181,4 @@ public class CronoTaskGeradorHTML extends RegrasBaseVisitor<Void> {
         return super.visitData(ctx);
     }
     
-}
+}*/
