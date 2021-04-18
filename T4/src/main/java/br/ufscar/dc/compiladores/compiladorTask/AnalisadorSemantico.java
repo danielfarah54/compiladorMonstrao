@@ -13,7 +13,10 @@ import org.antlr.v4.runtime.Token;
 
 public class AnalisadorSemantico extends TaskRulesBaseVisitor<Void> {
 
+    //escopo é global
     static Escopos escopo = new Escopos();
+    //hashmap como chave o nome da task e contém uma lista com todas as tasks com o mesmo nome
+    //(gramatica aceita nomes de tasks iguais)
     HashMap<String, List<TaskRulesParser.TarefaContext>> tabelaTask = new HashMap<>();
 
     public void adicionarTarefaNoEscopo(String nome, String tipo, Token nomeT, Token tipoT) {
@@ -36,12 +39,14 @@ public class AnalisadorSemantico extends TaskRulesBaseVisitor<Void> {
     @Override
     public Void visitTarefa(TaskRulesParser.TarefaContext ctx) {
         boolean semErro = true;
+        //se alguma task possui o mesmo nome
         if (tabelaTask.containsKey(ctx.nome().getText())) {
-            System.out.println("Entrou");
+            
+            //para cada task com mesmo nome, verificar se os elementos são iguais
             for (TaskRulesParser.TarefaContext tc : tabelaTask.get(ctx.nome().getText())) {
                 if ((ctx.nome().getText().equals(tc.nome().getText())) && (ctx.data().getText().equals(tc.data().getText()))
                         && (ctx.categoria().getText().equals(tc.categoria().getText())) && (ctx.local().getText().equals(tc.local().getText()))) {
-
+                    //adiciona erro e sai do loop
                     adicionarErroSemantico(ctx.start, "Tarefa " + ctx.nome().getText() + " já foi declarada anteriormente");
                     semErro = false;
                     break;
@@ -49,14 +54,17 @@ public class AnalisadorSemantico extends TaskRulesBaseVisitor<Void> {
                 }
 
             }
+            //se não tiver erro
             if (semErro) {
+                //adiciona task no escopo
                 adicionarTarefaNoEscopo(ctx.nome().getText(), ctx.categoria().tipo_categoria().getText(), ctx.TASK().getSymbol(), ctx.categoria().tipo_categoria().getStart());
                 tabelaTask.get(ctx.nome().getText()).add(ctx);
             }
 
-        } else {
-            System.out.println("Entrou no else");
+        } else { //se não tiver nenhuma task com o mesmo nome
+            //adiciona no escopo
             adicionarTarefaNoEscopo(ctx.nome().getText(), ctx.categoria().tipo_categoria().getText(), ctx.TASK().getSymbol(), ctx.categoria().tipo_categoria().getStart());
+            //cria uma lista (contém todos as tasks com mesmo nome)
             List<TaskRulesParser.TarefaContext> listaTarefas = new ArrayList<TaskRulesParser.TarefaContext>();
             listaTarefas.add(ctx);
             tabelaTask.put(ctx.nome().getText(), listaTarefas);

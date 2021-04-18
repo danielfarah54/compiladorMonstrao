@@ -10,6 +10,8 @@ import java.util.Map;
 
 
 public class TabelaDeSimbolos {
+    
+    //tipos de categorias primitivas (a gramatica aceita apenas tipos primitivos)
      public enum TarefaCategoria{
         TEST,
         SCHOOL_PROJECT,
@@ -20,6 +22,7 @@ public class TabelaDeSimbolos {
         INVALID
     }
      
+     //retorna o tipo da categoria a partir de uma string
      public TarefaCategoria getTarefaCategoria(String categoria){
          switch(categoria){
              case "test":

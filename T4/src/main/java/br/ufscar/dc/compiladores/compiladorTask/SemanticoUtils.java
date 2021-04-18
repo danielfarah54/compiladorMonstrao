@@ -22,7 +22,7 @@ public class SemanticoUtils {
     }
 
 
-    
+    //verifica se a categoria é válida
     public static TabelaDeSimbolos.TarefaCategoria verificarTipo(TabelaDeSimbolos tabela, TaskRulesParser.Tipo_categoriaContext ctx){
         
         TabelaDeSimbolos.TarefaCategoria categoria = tabela.getTarefaCategoria(ctx.getText());
@@ -34,16 +34,20 @@ public class SemanticoUtils {
         return categoria;
     }
 
+    //função que verifica data válida e se a data de entrada é >= data atual
     public static void verificarData(TaskRulesParser.DataContext ctx) {
         LocalDate dataAtual = LocalDate.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         
+        //tenta realizar o parser da string data de entrada
         try{
             LocalDate dataEntrada = LocalDate.parse(ctx.FORMATO_DATA().getText(), formatter);
             
+            //se data atual vem depois da data de entrada
             if(dataAtual.isAfter(dataEntrada)){
                 adicionarErroSemantico(ctx.start, "Data "+ctx.FORMATO_DATA().getText()+" de entrada anterior à atual");
             }
+        //se não conseguir realizar o parser
         }catch (DateTimeParseException e){
              adicionarErroSemantico(ctx.start, "Data "+ctx.FORMATO_DATA().getText()+" inválida");
         }
