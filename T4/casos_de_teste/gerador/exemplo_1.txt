@@ -13,7 +13,7 @@ cronograma {
 	task {
 		name: "Aniversario Mae";
 		date: 21/04/2021;
-		local: "tasda";
+		local: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d405688.61889475735!2d-122.32129492150699!3d37.403018506900985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb68ad0cfc739%3A0x7eb356b66bd4b50e!2sVale%20do%20Sil%C3%ADcio%2C%20CA%2C%20EUA!5e0!3m2!1spt-BR!2sbr!4v1618768561915!5m2!1spt-BR!2sbr";
 		category: house_chores;
 		description: "quarta feira, comprar bombons.";
 	}
