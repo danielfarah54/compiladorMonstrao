@@ -12,10 +12,25 @@ de interesse dos estudantes. O único requisito é que o compilador tenha:
 ### Descrição do nosso CompiladorTask
 
 ### Link do Video
+[Link do Video privado no Youtube](https://www.google.com)
 
 ### Localidade dos Casos de Uso
+Os casos de uso se encontram na pasta raiz em uma pasta chamada "casos_de_teste".
 
 ### Como extrair uma localidade para colocar em um caso de uso
+
+1. Para alimentar um caso de uso com a localidade extraimos do Google Maps a localidade, clicando em compartilhar:
+<p align="center">
+<img src="./page_files/assets/img/imagem1.jpg" width="475" alt="imagem1local">
+</p>
+
+<br>
+
+2. Logo apos abrir o compartilhar clique em Incorporar um Mapa e copie o link dentro das aspas de "src":
+<p align="center">
+<img src="./page_files/assets/img/imagem2.jpg" width="475" alt="imagem2local">
+</p>
+
 
 ### Dependências:
 
@@ -31,24 +46,11 @@ $ mvn compile
 ```
 
 
-### Como executar Analisador Lexico e Sintatico:
+### Como executar Analisador Lexico e Sintatico, Analisador Semantico, Gerador de codigo:
 
 ```
 $ java -jar ./target/CompiladorTask-1.0-SNAPSHOT-jar-with-dependencies.jar ArquivoDeEntrada ArquivoDeSaida
 ```
-
-### Como executar Analisador Semantico:
-
-```
-$ java -jar ./target/CompiladorTask-1.0-SNAPSHOT-jar-with-dependencies.jar ArquivoDeEntrada ArquivoDeSaida
-```
-
-### Como executar Gerador de codigo:
-
-```
-$ java -jar ./target/CompiladorTask-1.0-SNAPSHOT-jar-with-dependencies.jar ArquivoDeEntrada ArquivoDeSaida
-```
-
 
 
 
