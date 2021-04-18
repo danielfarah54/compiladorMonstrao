@@ -1,13 +1,8 @@
 package br.ufscar.dc.compiladores.compiladorTask;
 
-import br.ufscar.dc.compiladores.compiladorTask.TabelaDeSimbolos.TarefaCategoria;
-import br.ufscar.dc.compiladores.compiladorTask.TaskClass; 
-import br.ufscar.dc.compiladores.compiladorTask.TaskSorter; 
-
-import org.junit.Before; 
-import org.junit.Test;   
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;   
 import java.util.ArrayList;   
-import static org.junit.Assert.*;
 
 public class GeradorCronoTask extends TaskRulesBaseVisitor<Void> {
 
@@ -59,7 +54,7 @@ public class GeradorCronoTask extends TaskRulesBaseVisitor<Void> {
 
         for(TaskRulesParser.TarefaContext tc : ctx.tarefas().tarefa()){
             //DUVIDA AQUI SOBRE O RESGATE DA DATA
-            TaskClass aux = new TaskClass(tc.nome().nome_tarefa.getText().split("\"")[1], LocalDate.parse(tc.data().getText(),formatter), 
+            TaskClass aux = new TaskClass(tc.nome().nome_tarefa.getText().split("\"")[1], LocalDate.parse(tc.data().FORMATO_DATA().getText(),formatter), 
                                             tc.local().link.getText().split("\"")[1], tc.categoria().tipo_categoria().getText(), 
                                             tc.descricao().desc.getText().split("\"")[1]);
             taskList.add(aux);
