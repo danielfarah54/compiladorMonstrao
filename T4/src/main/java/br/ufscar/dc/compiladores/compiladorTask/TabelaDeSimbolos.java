@@ -11,31 +11,31 @@ import java.util.Map;
 
 public class TabelaDeSimbolos {
      public enum TarefaCategoria{
-        PROVA,
-        TRABALHO,
-        EXERCICIO,
-        CASA,
-        EVENTOS,
-        OUTROS,
-        INVALIDO
+        TEST,
+        SCHOOL_PROJECT,
+        HOMEWORK,
+        HOUSE_CHORES,
+        EVENT,
+        OTHERS,
+        INVALID
     }
      
      public TarefaCategoria getTarefaCategoria(String categoria){
          switch(categoria){
-             case "prova":
-                 return TarefaCategoria.PROVA;
-             case "trabalho":
-                 return TarefaCategoria.TRABALHO;
-             case "exercicio":
-                 return TarefaCategoria.EXERCICIO;
-             case "casa":
-                 return TarefaCategoria.CASA;
-             case "eventos":
-                 return TarefaCategoria.EVENTOS;
-             case "outros":
-                 return TarefaCategoria.OUTROS;
+             case "test":
+                 return TarefaCategoria.TEST;
+             case "school_project":
+                 return TarefaCategoria.SCHOOL_PROJECT;
+             case "homework":
+                 return TarefaCategoria.HOMEWORK;
+             case "house_chores":
+                 return TarefaCategoria.HOUSE_CHORES;
+             case "event":
+                 return TarefaCategoria.EVENT;
+             case "others":
+                 return TarefaCategoria.OTHERS;
              default:
-                return TarefaCategoria.INVALIDO;
+                return TarefaCategoria.INVALID;
          }
      }
     

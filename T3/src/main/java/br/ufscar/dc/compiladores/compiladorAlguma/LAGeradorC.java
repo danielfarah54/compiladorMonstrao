@@ -59,7 +59,7 @@ public class LAGeradorC extends RegrasBaseVisitor<Void> {
     public Void visitDeclaracao_local(RegrasParser.Declaracao_localContext ctx) {
         String nomeVar = null;
         String strTipoVar = ctx.variavel().tipo().getText();
-        TabelaDeSimbolos.TipoLA tipoVar = TabelaDeSimbolos.TipoLA.INVALIDO;
+        TabelaDeSimbolos.TipoLA tipoVar = TabelaDeSimbolos.TipoLA.INVALID;
         switch (strTipoVar) {
             case "inteiro":
                 tipoVar = TabelaDeSimbolos.TipoLA.INTEIRO;

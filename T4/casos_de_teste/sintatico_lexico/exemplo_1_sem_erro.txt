@@ -5,16 +5,16 @@ cronograma {
 
 		# data do prazo
 		date: 20/04/2021;
-		local: "local 1";
-		category: casa;
+		local: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7125390.739581727!2d29.910712364042876!3d29.3059640122515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14584f7de239bbcd%3A0xca7474355a6e368b!2zUGlyw6JtaWRlcyBkZSBHaXrDqQ!5e0!3m2!1spt-BR!2sbr!4v1618768189840!5m2!1spt-BR!2sbr";
+		category: house_chores;
 		description: "primeira tarefa";
 	}
 
 	task {
 		name: "Tarefa 2";
 		date: 21/04/2021;
-		local: "local 2";
-		category: trabalho;
+		local: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7125390.739581727!2d29.910712364042876!3d29.3059640122515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14584f7de239bbcd%3A0xca7474355a6e368b!2zUGlyw6JtaWRlcyBkZSBHaXrDqQ!5e0!3m2!1spt-BR!2sbr!4v1618768189840!5m2!1spt-BR!2sbr";
+		category: school_project;
 		description: "segunda tarefa";
 	}
 }

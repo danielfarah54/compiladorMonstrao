@@ -42,11 +42,11 @@ public class Calculador extends RegrasBaseVisitor<Void> {
         }else if(tipo.equals("registro")){
             tipoLa=TipoLA.REGISTRO;
         }else{
-            tipoLa=TipoLA.INVALIDO;
+            tipoLa=TipoLA.INVALID;
         }
         
                        
-        if(tipoLa == TipoLA.INVALIDO){
+        if(tipoLa == TipoLA.INVALID){
             LASemanticoUtils.adicionarErroSemantico(tipoT, "tipo "+tipo+" nao declarado");
         }
         
@@ -216,7 +216,7 @@ public class Calculador extends RegrasBaseVisitor<Void> {
                         }else if(tipo.equals("registro")){
                             tipoLa=TipoLA.REGISTRO;
                         }else{
-                            tipoLa=TipoLA.INVALIDO;
+                            tipoLa=TipoLA.INVALID;
                         }
                         tiposVariaveis.add(tipoLa);
                     }
@@ -245,7 +245,7 @@ public class Calculador extends RegrasBaseVisitor<Void> {
                             }else if(tipo.equals("registro")){
                                 tipoLa=TipoLA.REGISTRO;
                             }else{
-                                tipoLa=TipoLA.INVALIDO;
+                                tipoLa=TipoLA.INVALID;
                             }
                             tiposVariaveis.add(tipoLa);
                             
@@ -292,7 +292,7 @@ public class Calculador extends RegrasBaseVisitor<Void> {
                         }else if(tipo.equals("registro")){
                             tipoLa=TipoLA.REGISTRO;
                         }else{
-                            tipoLa=TipoLA.INVALIDO;
+                            tipoLa=TipoLA.INVALID;
                         }
                         tiposVariaveis.add(tipoLa);
                     }
@@ -322,7 +322,7 @@ public class Calculador extends RegrasBaseVisitor<Void> {
                         }else if(tipo.equals("registro")){
                             tipoLa=TipoLA.REGISTRO;
                         }else{
-                            tipoLa=TipoLA.INVALIDO;
+                            tipoLa=TipoLA.INVALID;
                         }
                         tiposVariaveis.add(tipoLa);
                             for(int i=0; i<variaveisRegistro.size();i=i+2){
@@ -447,7 +447,7 @@ public class Calculador extends RegrasBaseVisitor<Void> {
         TipoLA tipoExpressao = LASemanticoUtils.verificarTipo(tabela, ctx.expressao());
         String varNome = ctx.identificador().getText();
         
-        if(tipoExpressao != TipoLA.INVALIDO){
+        if(tipoExpressao != TipoLA.INVALID){
             
             if (!tabela.existe(varNome)){
                  LASemanticoUtils.adicionarErroSemantico(ctx.identificador().getStart(), "identificador " + ctx.identificador().getText() + " nao declarado");

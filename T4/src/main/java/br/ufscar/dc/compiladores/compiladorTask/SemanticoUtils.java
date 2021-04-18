@@ -27,8 +27,8 @@ public class SemanticoUtils {
         
         TabelaDeSimbolos.TarefaCategoria categoria = tabela.getTarefaCategoria(ctx.getText());
         
-        if(categoria == TabelaDeSimbolos.TarefaCategoria.INVALIDO){
-            adicionarErroSemantico(ctx.start, "Categoria inválida");
+        if(categoria == TabelaDeSimbolos.TarefaCategoria.INVALID){
+            adicionarErroSemantico(ctx.start, "Categoria "+ctx.getText()+ " inválida");
         }
         
         return categoria;
@@ -42,7 +42,7 @@ public class SemanticoUtils {
             LocalDate dataEntrada = LocalDate.parse(ctx.FORMATO_DATA().getText(), formatter);
             
             if(dataAtual.isAfter(dataEntrada)){
-                adicionarErroSemantico(ctx.start, "Data "+ctx.FORMATO_DATA().getText()+" inválida");
+                adicionarErroSemantico(ctx.start, "Data "+ctx.FORMATO_DATA().getText()+" de entrada anterior à atual");
             }
         }catch (DateTimeParseException e){
              adicionarErroSemantico(ctx.start, "Data "+ctx.FORMATO_DATA().getText()+" inválida");

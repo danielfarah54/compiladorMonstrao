@@ -17,17 +17,17 @@ ANO: [0-9][0-9][0-9][0-9]
 DESCRIPTION: 'description'
 ;
 
-CASA: 'casa';
+HOUSE_CHORES: 'casa';
 
-TRABALHO: 'trabalho';
+SCHOOL_PROJECT: 'trabalho';
 
-PROVA: 'prova';
+TEST: 'prova';
 
-EXERCICIO: 'exercicio';
+HOMEWORK: 'exercicio';
 
-EVENTOS: 'eventos';
+EVENT: 'eventos';
 
-OUTROS: 'outros';
+OTHERS: 'outros';
 
 
 // delimitadores
@@ -77,7 +77,7 @@ nome: 'name' ':' nome_tarefa=CADEIA_LINHA ';'
 categoria: 'category' ':'   tipo_categoria  ';'
 ;
 
-tipo_categoria: ('casa'|'trabalho'| 'prova' | 'exercicio' | 'eventos' | 'outros')
+tipo_categoria: ('house_chores'|'school_project'| 'test' | 'homework' | 'event' | 'other')
 ;
 
 local: 'local' ':' link=CADEIA_LINHA ';'

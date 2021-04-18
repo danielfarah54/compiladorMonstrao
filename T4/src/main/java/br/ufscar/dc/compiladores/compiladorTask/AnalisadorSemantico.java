@@ -21,9 +21,7 @@ public class AnalisadorSemantico extends TaskRulesBaseVisitor<Void> {
 
         TabelaDeSimbolos.TarefaCategoria categoria = tabela.getTarefaCategoria(tipo);
 
-        if (categoria == TabelaDeSimbolos.TarefaCategoria.INVALIDO) {
-            SemanticoUtils.adicionarErroSemantico(tipoT, "Categoria " + tipo + " inválida");
-        } else {
+        if (categoria != TabelaDeSimbolos.TarefaCategoria.INVALID) {
             tabela.inserir(nome, categoria);
         }
     }
@@ -34,12 +32,6 @@ public class AnalisadorSemantico extends TaskRulesBaseVisitor<Void> {
         return super.visitPrograma(ctx);
     }
 
-    /*
-    @Override
-    public Void visitTarefas(TaskRulesParser.TarefasContext ctx) {
-
-        return super.visitTarefas(ctx);
-    }*/
 
     @Override
     public Void visitTarefa(TaskRulesParser.TarefaContext ctx) {
