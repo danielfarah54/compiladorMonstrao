@@ -147,18 +147,16 @@ public class GeradorCronoTask extends TaskRulesBaseVisitor<Void> {
             saida.append(task.getCategory());
             saida.append(
                     "</p><img"
-                    + "class=\"img-fluid d-block mx-auto\" src=\"https://www.imagemhost.com.br/images/2021/04/18/icone-trabalho-1.jpg\">\n"
-                    + "<p>");
-
-            saida.append(task.getDescription());
-            saida.append(
-                    "   </p>\n");
-
+                    + "class=\"img-fluid d-block mx-auto\" src=\"https://www.imagemhost.com.br/images/2021/04/18/icone-trabalho-1.jpg\">\n");
+            
             //COLOCAR AQUI A DATA
             saida.append("<p>Data: ");
             saida.append(task.getDate());
-            saida.append(
-                    "</p>\n");
+            saida.append("</p>\n");
+         
+            saida.append("<p>Descrição: ");
+            saida.append(task.getDescription());
+            saida.append("</p>\n");
 
             saida.append(
                     "<!-- Aqui em SRC colocamos o link extraido do GOOGLE MAPS DA LOCALIDADE  -->\n"
