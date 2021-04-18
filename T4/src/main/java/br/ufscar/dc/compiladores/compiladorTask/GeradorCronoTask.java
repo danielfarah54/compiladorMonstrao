@@ -78,7 +78,7 @@ public class GeradorCronoTask extends TaskRulesBaseVisitor<Void> {
                     "\">\n"
                     + "<div class=\"portfolio-hover\">\n"
                     + "<div class=\"portfolio-hover-content\"><i class=\"fa fa-plus fa-3x\"></i></div>\n"
-                    + "</div><img class=\"img-fluid\" src=\"https://julianajoaquim.com.br/wp-content/uploads/2019/04/icone-trabalho.jpg\">\n"
+                    + "</div><img class=\"img-fluid\" src=\"https://www.imagemhost.com.br/images/2021/04/18/icone-trabalho-1.jpg\">\n"
                     + "</a>\n"
                     + "<div class=\"portfolio-caption\">\n"
                     + "<h4>");
@@ -142,7 +142,7 @@ public class GeradorCronoTask extends TaskRulesBaseVisitor<Void> {
             saida.append(task.getCategory());
             saida.append(
                     "</p><img"
-                    + "class=\"img-fluid d-block mx-auto\" src=\"https://julianajoaquim.com.br/wp-content/uploads/2019/04/icone-trabalho.jpg\">\n"
+                    + "class=\"img-fluid d-block mx-auto\" src=\"https://www.imagemhost.com.br/images/2021/04/18/icone-trabalho-1.jpg\">\n"
                     + "<p>");
 
             saida.append(task.getDescription());
