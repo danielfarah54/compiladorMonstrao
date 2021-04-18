@@ -54,7 +54,7 @@ $ mvn compile
 $ java -jar ./target/CompiladorTask-1.0-SNAPSHOT-jar-with-dependencies.jar ArquivoDeEntrada
 ```
 
-# Saída
+### Saída
 
 Abrir index.html na pasta /page_files
 
