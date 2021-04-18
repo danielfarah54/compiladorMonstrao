@@ -15,9 +15,10 @@ DIAMES: [0-3][0-9]
 ANO: [0-9][0-9][0-9][0-9]
 ;
 
-// especificação da categoria
 DESCRIPTION: 'description'
 ;
+
+// especificação da categoria
 HOUSE_CHORES: 'casa'
 ;
 SCHOOL_PROJECT: 'trabalho'
