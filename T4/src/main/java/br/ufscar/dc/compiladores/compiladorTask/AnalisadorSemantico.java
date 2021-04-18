@@ -35,44 +35,50 @@ public class AnalisadorSemantico extends TaskRulesBaseVisitor<Void> {
         return super.visitPrograma(ctx);
     }
 
-
     @Override
     public Void visitTarefa(TaskRulesParser.TarefaContext ctx) {
         boolean semErro = true;
-        //se alguma task possui o mesmo nome
-        if (tabelaTask.containsKey(ctx.nome().getText())) {
-            
-            //para cada task com mesmo nome, verificar se os elementos são iguais
-            for (TaskRulesParser.TarefaContext tc : tabelaTask.get(ctx.nome().getText())) {
-                if ((ctx.nome().getText().equals(tc.nome().getText())) && (ctx.data().getText().equals(tc.data().getText()))
-                        && (ctx.categoria().getText().equals(tc.categoria().getText())) && (ctx.local().getText().equals(tc.local().getText()))) {
-                    //adiciona erro e sai do loop
-                    adicionarErroSemantico(ctx.start, "Tarefa " + ctx.nome().getText() + " já foi declarada anteriormente");
-                    semErro = false;
-                    break;
+        
+        try {
+            //se alguma task possui o mesmo nome
+            if (tabelaTask.containsKey(ctx.nome().getText())) {
+
+                //para cada task com mesmo nome, verificar se os elementos são iguais
+                for (TaskRulesParser.TarefaContext tc : tabelaTask.get(ctx.nome().getText())) {
+                    if ((ctx.nome().getText().equals(tc.nome().getText())) && (ctx.data().getText().equals(tc.data().getText()))
+                            && (ctx.categoria().getText().equals(tc.categoria().getText())) && (ctx.local().getText().equals(tc.local().getText()))) {
+                        //adiciona erro e sai do loop
+                        adicionarErroSemantico(ctx.start, "Tarefa " + ctx.nome().getText() + " já foi declarada anteriormente");
+                        semErro = false;
+                        break;
+
+                    }
 
                 }
+                //se não tiver erro
+                if (semErro) {
+                    //adiciona task no escopo
+                    adicionarTarefaNoEscopo(ctx.nome().getText(), ctx.categoria().tipo_categoria().getText(), ctx.TASK().getSymbol(), ctx.categoria().tipo_categoria().getStart());
+                    tabelaTask.get(ctx.nome().getText()).add(ctx);
+                }
 
-            }
-            //se não tiver erro
-            if (semErro) {
-                //adiciona task no escopo
+            } else { //se não tiver nenhuma task com o mesmo nome
+                //adiciona no escopo
                 adicionarTarefaNoEscopo(ctx.nome().getText(), ctx.categoria().tipo_categoria().getText(), ctx.TASK().getSymbol(), ctx.categoria().tipo_categoria().getStart());
-                tabelaTask.get(ctx.nome().getText()).add(ctx);
+                //cria uma lista (contém todos as tasks com mesmo nome)
+                List<TaskRulesParser.TarefaContext> listaTarefas = new ArrayList<TaskRulesParser.TarefaContext>();
+                listaTarefas.add(ctx);
+                tabelaTask.put(ctx.nome().getText(), listaTarefas);
+                
             }
-
-        } else { //se não tiver nenhuma task com o mesmo nome
-            //adiciona no escopo
-            adicionarTarefaNoEscopo(ctx.nome().getText(), ctx.categoria().tipo_categoria().getText(), ctx.TASK().getSymbol(), ctx.categoria().tipo_categoria().getStart());
-            //cria uma lista (contém todos as tasks com mesmo nome)
-            List<TaskRulesParser.TarefaContext> listaTarefas = new ArrayList<TaskRulesParser.TarefaContext>();
-            listaTarefas.add(ctx);
-            tabelaTask.put(ctx.nome().getText(), listaTarefas);
+            return super.visitTarefa(ctx);
+        } catch (NullPointerException e) {
+            adicionarErroSemantico(ctx.start, "Tarefa com número de argumentos incompatíveis");
+            return null;
         }
 
-        return super.visitTarefa(ctx);
+        
     }
-
 
     @Override
     public Void visitData(TaskRulesParser.DataContext ctx) {

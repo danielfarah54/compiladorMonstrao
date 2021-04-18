@@ -27,7 +27,7 @@ public class Principal {
             parser.addErrorListener(mcel);
 
             Token t = null;
-
+            
             // Enquanto existirem tokens
             while ((t = lex.nextToken()).getType() != Token.EOF) {
 
