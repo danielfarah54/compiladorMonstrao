@@ -5,16 +5,16 @@ cronograma {
 
 		# data do prazo
 		date: 24/04/2021;
-		local: "local 1";
-		category: casa;
+		local: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d33859098.71777259!2d-12.328587300000013!3d-58.80400019999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xb09dff882a7809e1%3A0xb08d0a385dc8c7c7!2sAntarctica!5e0!3m2!1spt-BR!2sbr!4v1618768321966!5m2!1spt-BR!2sbr";
+		category: house_chores;
 		description: "descrição da terefa";
 	}
 
 	task {
 		name: "Tarefa 2";
 		date: 20/04/2021;
-		local: "local 2";
-		category: casa;
+		local: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d33859098.71777259!2d-12.328587300000013!3d-58.80400019999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xb09dff882a7809e1%3A0xb08d0a385dc8c7c7!2sAntarctica!5e0!3m2!1spt-BR!2sbr!4v1618768321966!5m2!1spt-BR!2sbr";
+		category: house_chores;
 		description: "alguma coisa";
 	}
 	

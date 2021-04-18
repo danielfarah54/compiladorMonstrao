@@ -25,9 +25,9 @@ public class LASemanticoUtils {
 
         for (RegrasParser.Termo_logicoContext termoLogico : ctx.termo_logico()) {
             aux = verificarTipo(tabela, termoLogico);
-            if (ret != aux && aux != TabelaDeSimbolos.TipoLA.INVALIDO) {
+            if (ret != aux && aux != TabelaDeSimbolos.TipoLA.INVALID) {
                 //adicionarErroSemantico(ctx.start, "Expressão " + ctx.getText() + " contém tipos incompatíveis");
-                ret = TabelaDeSimbolos.TipoLA.INVALIDO;
+                ret = TabelaDeSimbolos.TipoLA.INVALID;
                 return ret;
             }
         }
@@ -41,9 +41,9 @@ public class LASemanticoUtils {
         ret = aux;
         for (RegrasParser.Fator_logicoContext fatorLogico : ctx.fator_logico()) {
             aux= verificarTipo(tabela, fatorLogico);
-            if (ret != aux && aux != TabelaDeSimbolos.TipoLA.INVALIDO) {
+            if (ret != aux && aux != TabelaDeSimbolos.TipoLA.INVALID) {
                 //adicionarErroSemantico(ctx.start, "Termo " + ctx.getText() + " contém tipos incompatíveis");
-                ret = TabelaDeSimbolos.TipoLA.INVALIDO;
+                ret = TabelaDeSimbolos.TipoLA.INVALID;
                 return ret;
             }
         }
@@ -90,7 +90,7 @@ public class LASemanticoUtils {
                   if ( ((ret1 == TabelaDeSimbolos.TipoLA.REAL) && (ret2 == TabelaDeSimbolos.TipoLA.INTEIRO)) || ((ret2 == TabelaDeSimbolos.TipoLA.REAL) && (ret1 == TabelaDeSimbolos.TipoLA.INTEIRO)) ) {
                     return TabelaDeSimbolos.TipoLA.LOGICO;
                 } else {
-                    return TabelaDeSimbolos.TipoLA.INVALIDO;
+                    return TabelaDeSimbolos.TipoLA.INVALID;
                 }
             }
         }
@@ -106,13 +106,13 @@ public class LASemanticoUtils {
 
         for (RegrasParser.TermoContext termo : ctx.termo()) {
             TabelaDeSimbolos.TipoLA aux = verificarTipo(tabela, termo);
-            if ((ret != aux) && (aux != TabelaDeSimbolos.TipoLA.INVALIDO)) {
+            if ((ret != aux) && (aux != TabelaDeSimbolos.TipoLA.INVALID)) {
 
                 if ((aux == TabelaDeSimbolos.TipoLA.REAL) || (aux == TabelaDeSimbolos.TipoLA.INTEIRO)) {
                     ret = TabelaDeSimbolos.TipoLA.REAL;
                 } else {
 
-                    ret = TabelaDeSimbolos.TipoLA.INVALIDO;
+                    ret = TabelaDeSimbolos.TipoLA.INVALID;
                     return ret;
                 }
             }
@@ -127,13 +127,13 @@ public class LASemanticoUtils {
 
         for (RegrasParser.FatorContext fator : ctx.fator()) {
             TabelaDeSimbolos.TipoLA aux = verificarTipo(tabela, fator);
-            if ((ret != aux) && (aux != TabelaDeSimbolos.TipoLA.INVALIDO)) {
+            if ((ret != aux) && (aux != TabelaDeSimbolos.TipoLA.INVALID)) {
 
                 if ((aux == TabelaDeSimbolos.TipoLA.REAL) || (aux == TabelaDeSimbolos.TipoLA.INTEIRO)) {
                     ret = TabelaDeSimbolos.TipoLA.REAL;
                 } else {
 
-                    ret = TabelaDeSimbolos.TipoLA.INVALIDO;
+                    ret = TabelaDeSimbolos.TipoLA.INVALID;
                     return ret;
                 }
             }
@@ -170,7 +170,7 @@ public class LASemanticoUtils {
         if (ctx.identificador() != null) {
             if (!tabela.existe(ctx.identificador().getText())) {
                 adicionarErroSemantico(ctx.identificador().getStart(), "identificador " + ctx.identificador().getText() + " nao declarado");
-                ret = TabelaDeSimbolos.TipoLA.INVALIDO;
+                ret = TabelaDeSimbolos.TipoLA.INVALID;
                 return ret;
             } else {
                 ret = tabela.verificar(ctx.identificador().getText());
@@ -203,7 +203,7 @@ public class LASemanticoUtils {
                     //NAO DEVERIA REPETIR
                     if(!errosSemanticos.contains("Linha "+ctx.identificador().getStart().getLine()+": "+"identificador " + ctx.identificador().getText() + " nao declarado")){
                         adicionarErroSemantico(ctx.identificador().start, "identificador " + ctx.identificador().getText() + " nao declarado");
-                        ret = TabelaDeSimbolos.TipoLA.INVALIDO;
+                        ret = TabelaDeSimbolos.TipoLA.INVALID;
                     }
                     
                 } else {
@@ -237,7 +237,7 @@ public class LASemanticoUtils {
                     //}
                 }
             } else {
-                ret = TabelaDeSimbolos.TipoLA.INVALIDO;
+                ret = TabelaDeSimbolos.TipoLA.INVALID;
             }
         } else if(ctx.NUM_INT()!=null){
             ret = TabelaDeSimbolos.TipoLA.INTEIRO;

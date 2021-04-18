@@ -3,6 +3,7 @@ br/ufscar/dc/compiladores/compiladorTask/TaskRulesParser$Tipo_categoriaContext.c
 br/ufscar/dc/compiladores/compiladorTask/TabelaDeSimbolos$TarefaCategoria.class
 br/ufscar/dc/compiladores/compiladorTask/TaskRulesBaseListener.class
 br/ufscar/dc/compiladores/compiladorTask/TaskRulesVisitor.class
+br/ufscar/dc/compiladores/compiladorTask/TaskClass$1.class
 br/ufscar/dc/compiladores/compiladorTask/TaskRulesParser$ProgramaContext.class
 br/ufscar/dc/compiladores/compiladorTask/SemanticoUtils.class
 br/ufscar/dc/compiladores/compiladorTask/TaskRulesBaseVisitor.class
@@ -13,10 +14,12 @@ br/ufscar/dc/compiladores/compiladorTask/Escopos.class
 br/ufscar/dc/compiladores/compiladorTask/TaskRulesParser$LocalContext.class
 br/ufscar/dc/compiladores/compiladorTask/TaskRulesListener.class
 br/ufscar/dc/compiladores/compiladorTask/TaskRulesParser$NomeContext.class
+br/ufscar/dc/compiladores/compiladorTask/TaskSorter.class
 br/ufscar/dc/compiladores/compiladorTask/TaskRulesParser$DescricaoContext.class
 br/ufscar/dc/compiladores/compiladorTask/TaskRulesParser$TarefaContext.class
 br/ufscar/dc/compiladores/compiladorTask/TabelaDeSimbolos$EntradaTabelaDeSimbolos.class
 br/ufscar/dc/compiladores/compiladorTask/GeradorCronoTask.class
+br/ufscar/dc/compiladores/compiladorTask/TaskClass.class
 br/ufscar/dc/compiladores/compiladorTask/Principal.class
 br/ufscar/dc/compiladores/compiladorTask/TaskRulesLexer.class
 br/ufscar/dc/compiladores/compiladorTask/TaskRulesParser$CategoriaContext.class
