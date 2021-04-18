@@ -18,7 +18,7 @@ O CompiladorTask tem como objetivo gerar uma pagina HTML com as task da pessoa, 
 - [Gramática CronogramaTask](https://github.com/yasuo-00/compiladorMonstrao/blob/main/T4/grammar.pdf)
 
 ### Link do Video
-- [Link do Video privado no Youtube](https://www.google.com)
+- [Link do Video privado no Youtube](https://youtu.be/lXLfi3GZEdw)
 
 ### Localidade dos Casos de Uso
 - Os casos de uso se encontram na pasta raiz em uma pasta chamada "casos_de_teste".
