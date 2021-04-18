@@ -36,7 +36,7 @@ public class CustomErrorListener implements ANTLRErrorListener {
 
     @Override
     public void syntaxError(Recognizer<?, ?> recognizer, Object offendingSymbol, int line, int charPositionInLine, String msg, RecognitionException e) {
-        
+
         // Aqui vamos colocar o tratamento de erro customizado
         // t recebe o primeiro símbolo após a detecção do erro
         Token t = (Token) offendingSymbol;
@@ -44,13 +44,14 @@ public class CustomErrorListener implements ANTLRErrorListener {
         // Tratando o erro de fim de arquivo
         if (t.getText().equals("<EOF>")) {
             pw.println("Linha " + line + ": erro sintatico proximo a EOF");
-        }
-        
-        // Para outros tipos de erro:
+            pw.println("Fim da compilacao");
+            pw.close();
+        } // Para outros tipos de erro:
         else {
             pw.println("Linha " + line + ": erro sintatico proximo a " + t.getText());
+            pw.println("Fim da compilacao");
+            pw.close();
 
-            
         }
     }
 }

@@ -50,6 +50,8 @@ public class SemanticoUtils {
         //se não conseguir realizar o parser
         }catch (DateTimeParseException e){
              adicionarErroSemantico(ctx.start, "Data "+ctx.FORMATO_DATA().getText()+" inválida");
+        }catch (NullPointerException e){
+            adicionarErroSemantico(ctx.start, "Data inválida");
         }
     }
 }
