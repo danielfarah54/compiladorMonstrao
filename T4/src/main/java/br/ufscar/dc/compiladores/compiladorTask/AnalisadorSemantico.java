@@ -91,4 +91,13 @@ public class AnalisadorSemantico extends TaskRulesBaseVisitor<Void> {
         SemanticoUtils.verificarTipo(escopo.obterEscopoAtual(), ctx.tipo_categoria());
         return super.visitCategoria(ctx);
     }
+    
+    @Override
+    public Void visitLocal(TaskRulesParser.LocalContext ctx) {
+        String maps = "https://www.google.com/maps/";
+        String url = ctx.link.getText().split("\"")[1];
+        if(!url.startsWith(maps))
+            adicionarErroSemantico(ctx.start, "URL " + url + " inválida");
+        return super.visitLocal(ctx);
+    }
 }

@@ -14,7 +14,7 @@ cronograma {
 	task {
 		name: "Comprar mais ração para o cachorro";
 		date: 19/04/2021;
-		local: "local 2";
+		local: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d947127.35102338!2d-48.441838634375046!3d-21.983852099999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94b870d8899b96c5%3A0x26db4c677a5af1d4!2sUFSCar%20-%20Universidade%20Federal%20de%20S%C3%A3o%20Carlos!5e0!3m2!1spt-BR!2sbr!4v1618758541106!5m2!1spt-BR!2sbr";
 		category: house_chores;
 		description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut pharetra euismod ligula at tincidunt. Integer quis ex in diam ultrices sagittis eu in velit. Proin accumsan dui eget lectus imperdiet, ac faucibus ante pellentesque. Donec viverra sit amet erat id vestibulum. Quisque ultrices et tellus id lacinia. Vivamus cursus nisl in turpis auctor aliquet. Proin ipsum justo, cursus ac ultrices sed, viverra at tellus. Proin ligula ante, posuere id massa ut, lobortis ornare ipsum. Suspendisse mollis, lorem sed commodo volutpat, nibh nibh pretium ipsum, vel pulvinar neque massa eu tortor. Donec fermentum nibh libero, vitae aliquet metus auctor ornare. Phasellus ac facilisis lorem. Aenean lacus lectus, auctor quis tellus a, sodales cursus neque. Pellentesque pulvinar elit luctus, blandit nunc quis, congue arcu.
 
