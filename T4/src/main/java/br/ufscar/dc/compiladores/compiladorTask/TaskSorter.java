@@ -11,7 +11,8 @@ public class TaskSorter {
   }       
 
   public ArrayList<TaskClass> getSortedTaskByDate() {         
-    Collections.sort(task, TaskClass.dateComparator);         
+    Collections.sort(task, TaskClass.dateComparator); 
+    Collections.reverse(task);
     return task;     
   }       
 }

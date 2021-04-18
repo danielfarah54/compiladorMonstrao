@@ -11,7 +11,9 @@ import org.antlr.v4.runtime.Token;
 public class Principal {
 
     public static void main(String args[]) {
-        try ( PrintWriter pw = new PrintWriter(new File(args[1]))) {
+        try ( PrintWriter pw = new PrintWriter(new File("./T4/page_files/index.html"))) {
+            
+            boolean erroLexico=false;
 
             // Leitura do arquivo de entrada
             CharStream cs = CharStreams.fromFileName(args[0]);
@@ -31,23 +33,26 @@ public class Principal {
             // Enquanto existirem tokens
             while ((t = lex.nextToken()).getType() != Token.EOF) {
 
-                System.out.println("<" + TaskRulesLexer.VOCABULARY.getDisplayName(t.getType()) + "," + t.getText() + ">");
+                ///System.out.println("<" + TaskRulesLexer.VOCABULARY.getDisplayName(t.getType()) + "," + t.getText() + ">");
 
                 // TRATAMENTO DOS ERROS LÉXICOS:
                 // Cadeia não fechada
                 if (TaskRulesLexer.VOCABULARY.getDisplayName(t.getType()).equals("CADEIA_LINHA_NAO_FECHADA")) {
                     pw.println("Linha " + (lex.getLine() - 1) + ": cadeia literal nao fechada");
+                    erroLexico=true;
 
                 }
 
                 if (TaskRulesLexer.VOCABULARY.getDisplayName(t.getType()).equals("CADEIA_MULTILINHA_NAO_FECHADA")) {
                     pw.println("Linha " + (lex.getLine() - 1) + ": cadeia literal nao fechada");
+                    erroLexico=true;
 
                 }
 
                 // Símbolo não identificado
                 if (TaskRulesLexer.VOCABULARY.getDisplayName(t.getType()).equals("ERRO")) {
                     pw.println("Linha " + lex.getLine() + ": " + t.getText() + " - simbolo nao identificado");
+                    erroLexico=true;
 
                 }
             }
@@ -60,7 +65,9 @@ public class Principal {
             TaskRulesParser.ProgramaContext arvore = parser.programa();
             //INICIALIZA ANALISADOR SEMANTICO
             AnalisadorSemantico as = new AnalisadorSemantico();
-            //ANALISADOR SEMANTICO VISITA ARVORE
+            
+            if(!erroLexico){
+                //ANALISADOR SEMANTICO VISITA ARVORE
             as.visitPrograma(arvore);
             
             //SE NÃO TIVER ERROS
@@ -78,10 +85,13 @@ public class Principal {
                 pw.println("Fim da compilacao");
             }
 
+            }
+            
             pw.close();
 
         } catch (IOException ex) {
             // Em caso de alguma exceção, apenas ignora
+            System.out.println("Erro ao abrir arquivo");
         }
     }
 }
