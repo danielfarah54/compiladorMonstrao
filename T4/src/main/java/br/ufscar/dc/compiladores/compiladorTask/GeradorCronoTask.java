@@ -14,6 +14,7 @@ public class GeradorCronoTask extends TaskRulesBaseVisitor<Void> {
         this.tabela = new TabelaDeSimbolos();
     }
 
+    //Nosso programa basicamente retorna as tasks em um HTML ordenadas de acordo com a data
     @Override
     public Void visitPrograma(TaskRulesParser.ProgramaContext ctx) {
         saida.append("<!DOCTYPE html>\n"
@@ -45,6 +46,9 @@ public class GeradorCronoTask extends TaskRulesBaseVisitor<Void> {
                 + "<div class=\"row\">\n");
         saida.append("\n");
 
+        
+        //A ideia aqui foi alimentar um array com os valores de cada task, ordena-los de acordo com a data  e depois apresentar de forma ordenada, utilizamos uma classe
+        // para as tasks e fizemos uma funcao para ordenar atraves da data.
         int i = 0;
         TaskSorter taskSorter;
         ArrayList<TaskClass> taskList = new ArrayList<>();
@@ -63,7 +67,7 @@ public class GeradorCronoTask extends TaskRulesBaseVisitor<Void> {
         taskSorter = new TaskSorter(taskList);
         ArrayList<TaskClass> sortedTasks = taskSorter.getSortedTaskByDate();
 
-        //ESSE FOR QUE VAI SUBSTITUIR O DE BAIXO
+        //Aqui simplesmente rodamos as tasks ordenadas no vetor e recuperamos os valores nas posicoes corretas no html
         for (TaskClass task : sortedTasks) {
             //for(TaskRulesParser.TarefaContext tc : ctx.tarefas().tarefa()){
 
@@ -118,6 +122,7 @@ public class GeradorCronoTask extends TaskRulesBaseVisitor<Void> {
 
         //APPEND DAS PAGINAS, PARA CADA TASK UMA PAGINA 
         j = 0;
+       //Aqui simplesmente rodamos as tasks ordenadas no vetor e recuperamos os valores nas posicoes corretas no html, para gerar as paginas para cada task
         for (TaskClass task : sortedTasks) {
             //for(TaskRulesParser.TarefaContext tc : ctx.tarefas().tarefa()){
             saida.append("<!-- AQUI TEMOS QUE COLOCAR NO FOR NO PROGRAMA REPETINDO ESSA DIV DE BAIXO -->\n"
@@ -184,6 +189,7 @@ public class GeradorCronoTask extends TaskRulesBaseVisitor<Void> {
         return null;
     }
 
+    //Os outros visitantes necessarios abaixo
     @Override
     public Void visitTarefa(TaskRulesParser.TarefaContext ctx) {
         return super.visitTarefa(ctx);
