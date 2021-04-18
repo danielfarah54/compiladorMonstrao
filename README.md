@@ -138,14 +138,14 @@ O CompiladorTask tem como objetivo gerar uma pagina HTML com as task da pessoa, 
 
 1. Para alimentar um caso de uso com a localidade extraimos do Google Maps a localidade, clicando em compartilhar:
 <p align="center">
-<img src="./page_files/assets/img/imagem1.jpg" width="475" alt="imagem1local">
+<img src="./T4/page_files/assets/img/imagem1.jpg" width="475" alt="imagem1local">
 </p>
 
 <br>
 
 2. Logo apos abrir o compartilhar clique em Incorporar um Mapa e copie o link dentro das aspas de "src":
 <p align="center">
-<img src="./page_files/assets/img/imagem2.jpg" width="475" alt="imagem2local">
+<img src="./T4/page_files/assets/img/imagem2.jpg" width="475" alt="imagem2local">
 </p>
 
 
