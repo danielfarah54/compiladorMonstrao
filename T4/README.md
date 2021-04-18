@@ -11,11 +11,13 @@ de interesse dos estudantes. O único requisito é que o compilador tenha:
 
 ### Descrição do nosso CompiladorTask
 
+O CompiladorTask tem como objetivo gerar uma pagina HTML com as task da pessoa, ordenadas de acordo a proximidade do evento, categorizadas e ter uma visibilidade mais facil em um site.
+
 ### Link do Video
-[Link do Video privado no Youtube](https://www.google.com)
+- [Link do Video privado no Youtube](https://www.google.com)
 
 ### Localidade dos Casos de Uso
-Os casos de uso se encontram na pasta raiz em uma pasta chamada "casos_de_teste".
+- Os casos de uso se encontram na pasta raiz em uma pasta chamada "casos_de_teste".
 
 ### Como extrair uma localidade para colocar em um caso de uso
 
