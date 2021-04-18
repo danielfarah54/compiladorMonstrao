@@ -1,6 +1,13 @@
 package br.ufscar.dc.compiladores.compiladorTask;
 
 import br.ufscar.dc.compiladores.compiladorTask.TabelaDeSimbolos.TarefaCategoria;
+import br.ufscar.dc.compiladores.compiladorTask.TaskClass; 
+import br.ufscar.dc.compiladores.compiladorTask.TaskSorter; 
+
+import org.junit.Before; 
+import org.junit.Test;   
+import java.util.ArrayList;   
+import static org.junit.Assert.*;
 
 public class GeradorCronoTask extends TaskRulesBaseVisitor<Void> {
 
@@ -12,6 +19,7 @@ public class GeradorCronoTask extends TaskRulesBaseVisitor<Void> {
         this.tabela = new TabelaDeSimbolos();
     }
 
+    
     @Override
     public Void visitPrograma(TaskRulesParser.ProgramaContext ctx) {
         saida.append("<!DOCTYPE html>\n"
@@ -43,33 +51,53 @@ public class GeradorCronoTask extends TaskRulesBaseVisitor<Void> {
                     "<div class=\"row\">\n");
         saida.append("\n");
 
-        //Tarefas na thumb
-        //visitTarefas(ctx.tarefa());
-        int i=0;
-        for(TaskRulesParser.TarefaContext tc : ctx.tarefas().tarefa()){
-            
-            saida.append(
-            "<!-- AQUI TEMOS QUE COLOCAR NO FOR NO PROGRAMA REPETINDO ESSA DIV DE BAIXO -->\n"
-            +"<div class=\"col-sm-6 col-md-4 portfolio-item\">\n"
-                +"<!-- COLOCAR O HREF REFERENTE COM A PAGINA LA EM BAIXO -->\n"
-                +"<a class=\"portfolio-link\" data-toggle=\"modal\" href=\"#");
-                
-            saida.append("Portfolio"+i);
-            saida.append(
-                            "\">\n"
-                                +"<div class=\"portfolio-hover\">\n"
-                                    +"<div class=\"portfolio-hover-content\"><i class=\"fa fa-plus fa-3x\"></i></div>\n"
-                                +"</div><img class=\"img-fluid\" src=\"assets/img/portfolio/1-thumbnail.jpg\">\n"
-                            +"</a>\n"
-                            +"<div class=\"portfolio-caption\">\n"
-                                +"<h4>");
 
-            saida.append(tc.nome().nome_tarefa.getText().split("\"")[1]);
-            saida.append("</h4>\n<p class=\"text-muted\">");
-            saida.append(tc.categoria().tipo_categoria().getText());       
-            saida.append("</p>\n</div>\n</div>");
+        int i = 0;
+        TaskSorter taskSorter;
+        ArrayList<TaskClass> taskList = new ArrayList<>();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+        for(TaskRulesParser.TarefaContext tc : ctx.tarefas().tarefa()){
+            //DUVIDA AQUI SOBRE O RESGATE DA DATA
+            TaskClass aux = new TaskClass(tc.nome().nome_tarefa.getText().split("\"")[1], LocalDate.parse(tc.data().getText(),formatter), 
+                                            tc.local().link.getText().split("\"")[1], tc.categoria().tipo_categoria().getText(), 
+                                            tc.descricao().desc.getText().split("\"")[1]);
+            taskList.add(aux);
             i++;
         }
+
+        int j=0;
+        taskSorter = new TaskSorter(taskList);
+        ArrayList<TaskClass> sortedTasks = taskSorter.getSortedTaskByDate();    
+        
+        //ESSE FOR QUE VAI SUBSTITUIR O DE BAIXO
+        for (TaskClass task : sortedTasks) {   
+            //for(TaskRulesParser.TarefaContext tc : ctx.tarefas().tarefa()){
+            
+                saida.append(
+                "<!-- AQUI TEMOS QUE COLOCAR NO FOR NO PROGRAMA REPETINDO ESSA DIV DE BAIXO -->\n"
+                +"<div class=\"col-sm-6 col-md-4 portfolio-item\">\n"
+                    +"<!-- COLOCAR O HREF REFERENTE COM A PAGINA LA EM BAIXO -->\n"
+                    +"<a class=\"portfolio-link\" data-toggle=\"modal\" href=\"#");
+                    
+                saida.append("Portfolio"+ j );
+                saida.append(
+                                "\">\n"
+                                    +"<div class=\"portfolio-hover\">\n"
+                                        +"<div class=\"portfolio-hover-content\"><i class=\"fa fa-plus fa-3x\"></i></div>\n"
+                                    +"</div><img class=\"img-fluid\" src=\"https://julianajoaquim.com.br/wp-content/uploads/2019/04/icone-trabalho.jpg\">\n"
+                                +"</a>\n"
+                                +"<div class=\"portfolio-caption\">\n"
+                                    +"<h4>");
+    
+                saida.append(task.getName());
+                saida.append("</h4>\n<p class=\"text-muted\">");
+                saida.append(task.getCategory());       
+                saida.append("</p>\n</div>\n</div>");
+                j++;
+            //}     
+        }
+        
 
         saida.append("\n");
         saida.append(" </div>\n"
@@ -97,55 +125,61 @@ public class GeradorCronoTask extends TaskRulesBaseVisitor<Void> {
                 +"</footer>\n");
 
         //APPEND DAS PAGINAS, PARA CADA TASK UMA PAGINA 
-        i=0;
-        for(TaskRulesParser.TarefaContext tc : ctx.tarefas().tarefa()){
-            saida.append("<!-- AQUI TEMOS QUE COLOCAR NO FOR NO PROGRAMA REPETINDO ESSA DIV DE BAIXO -->\n"
-            +"<div class=\"modal fade portfolio-modal text-center\" role=\"dialog\" tabindex=\"-1\" id=\"");
-            
-            saida.append("Portfolio"+i);
-            saida.append("\">\n"
-                +"<div class=\"modal-dialog modal-lg\" role=\"document\">\n"
-                    +"<div class=\"modal-content\">\n"
-                        +"<div class=\"modal-body\">\n"
-                            +"<div class=\"container\">\n"
-                                +"<div class=\"row\">\n"
-                                    +"<div class=\"col-lg-8 mx-auto\">\n"
-                                        +"<div class=\"modal-body\">\n"
-                                            +"<!-- Aqui pegar o mesmo nome da Tarefa  -->\n"
-                                            +"<h2 class=\"text-uppercase\">");
-                                            
-            saida.append(tc.nome().nome_tarefa.getText().split("\"")[1]);                  
-            saida.append("</h2>\n"
-                            +"<p class=\"item-intro text-muted\">");
-                                            
-            saida.append(tc.categoria().tipo_categoria().getText());                     
-            saida.append(
-                            "</p><img"
-                                +"class=\"img-fluid d-block mx-auto\" src=\"assets/img/portfolio/1-full.jpg\">\n"
-                            +"<p>"); 
-                                            
-            saida.append(tc.descricao().desc.getText().split("\"")[1]);
-            saida.append(                                    
-                         "   </p>\n"
-                            +"<!-- Aqui em SRC colocamos o link extraido do GOOGLE MAPS DA LOCALIDADE  -->\n"
-                            +"<iframe"
-                                +"src=\"");
+        j=0;
+        for (TaskClass task : sortedTasks) {  
+            //for(TaskRulesParser.TarefaContext tc : ctx.tarefas().tarefa()){
+                saida.append("<!-- AQUI TEMOS QUE COLOCAR NO FOR NO PROGRAMA REPETINDO ESSA DIV DE BAIXO -->\n"
+                +"<div class=\"modal fade portfolio-modal text-center\" role=\"dialog\" tabindex=\"-1\" id=\"");
+                
+                saida.append("Portfolio"+j);
+                saida.append("\">\n"
+                    +"<div class=\"modal-dialog modal-lg\" role=\"document\">\n"
+                        +"<div class=\"modal-content\">\n"
+                            +"<div class=\"modal-body\">\n"
+                                +"<div class=\"container\">\n"
+                                    +"<div class=\"row\">\n"
+                                        +"<div class=\"col-lg-8 mx-auto\">\n"
+                                            +"<div class=\"modal-body\">\n"
+                                                +"<!-- Aqui pegar o mesmo nome da Tarefa  -->\n"
+                                                +"<h2 class=\"text-uppercase\">");
                                                 
-            saida.append(tc.local().link.getText());
-            saida.append(
-                         "               \""
-                                        +"width=100% height=100% frameborder=\"0\" style=\"border:0;\" allowfullscreen=\"\""
-                                        +"aria-hidden=\"false\" tabindex=\"0\"></iframe>\n"
-                                    +"<br><br>\n"
-                                    +"<button class=\"btn btn-primary\" data-dismiss=\"modal\" type=\"button\"><i"
-                                            +"class=\"fa fa-times\"></i><span>&nbsp;Fechar Tarefa</span></button>\n"
-                                +"</div>\n</div>\n</div>\n</div>\n</div>\n</div>\n</div>\n</div>\n");
-        i++;
+                saida.append(task.getName());                  
+                saida.append("</h2>\n"
+                                +"<p class=\"item-intro text-muted\">");
+                                                
+                saida.append(task.getCategory());                     
+                saida.append(
+                                "</p><img"
+                                    +"class=\"img-fluid d-block mx-auto\" src=\"https://julianajoaquim.com.br/wp-content/uploads/2019/04/icone-trabalho.jpg\">\n"
+                                +"<p>"); 
+                                                
+                saida.append(task.getDescription());
+                saida.append(                                    
+                            "   </p>\n");
+
+                //COLOCAR AQUI A DATA
+
+
+                saida.append(
+                                "<!-- Aqui em SRC colocamos o link extraido do GOOGLE MAPS DA LOCALIDADE  -->\n"
+                                +"<iframe"
+                                    +"src=\"");
+                                                    
+                saida.append(task.getLocal());
+                saida.append(
+                            "               \""
+                                            +"width=100% height=100% frameborder=\"0\" style=\"border:0;\" allowfullscreen=\"\""
+                                            +"aria-hidden=\"false\" tabindex=\"0\"></iframe>\n"
+                                        +"<br><br>\n"
+                                        +"<button class=\"btn btn-primary\" data-dismiss=\"modal\" type=\"button\"><i"
+                                                +"class=\"fa fa-times\"></i><span>&nbsp;Fechar Tarefa</span></button>\n"
+                                    +"</div>\n</div>\n</div>\n</div>\n</div>\n</div>\n</div>\n</div>\n");
+            j++;
+            //}
         }
 
-
         //Finalizando o HTML
-        saida.append("<script src=\"assets/js/jquery.min.js\"></script>\n   "
+        saida.append("<script src=\"assets/js/jquery.min.js\"></script>\n"
             +"<script src=\"assets/bootstrap/js/bootstrap.min.js\"></script>\n"
             +"<script src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js\"></script>\n"
             +"<script src=\"assets/js/agency.js\"></script>\n"
