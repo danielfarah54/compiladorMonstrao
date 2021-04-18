@@ -54,6 +54,8 @@ $ mvn compile
 
 ### Como executar Analisador Lexico e Sintatico, Analisador Semantico, Gerador de codigo:
 
+[Executável](https://github.com/yasuo-00/compiladorMonstrao/blob/main/T4/target/CompiladorTask-1.0-SNAPSHOT-jar-with-dependencies.jar)
+
 ```
 $ java -jar ./target/CompiladorTask-1.0-SNAPSHOT-jar-with-dependencies.jar ArquivoDeEntrada
 ```
