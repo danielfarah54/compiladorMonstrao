@@ -41,10 +41,6 @@ DOIS_PONTOS: ':'
 PONTO_VIRGULA: ';'
 ;
 
-// número inteiro
-INT: [0-9]+
-;
-
 // cadeia de uma linha
 CADEIA_LINHA_NAO_FECHADA: ('"' ('a'..'z'|'A'..'Z')( ESC_SEQ | ~('"'| '\n') )* ('\n'))
 ;
