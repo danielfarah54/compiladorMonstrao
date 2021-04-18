@@ -1,6 +1,21 @@
 ## Trabalho 4 - Compilador Completo de Linguagem para Geração de Cronogramas
-O trabalho 4 (T4) da disciplina consiste em implementar um compilador completo para alguma linguagem de escolha do grupo.
-O exemplo escolhido foi uma linguagem para especificação de tarefas e prazos, que gera um cronograma em HTML.
+O trabalho 4 (T4) da disciplina consiste em implementar um compilador completo para uma
+linguagem de sua escolha. Não é necessário implementar uma linguagem de programação completa
+(como LA, ou Alguma). Na verdade, isso não é recomendável, dado que irá tomar muito tempo. A
+ideia é criar uma linguagem pequena, de preferência declarativa, para alguma aplicação específica
+de interesse dos estudantes. O único requisito é que o compilador tenha:
+
+- Análise léxica + sintática: em outras palavras, uma gramática;
+- Análise semântica: três ou quatro (ou mais) verificações de conformidade que não são feitas pela gramática;
+- Geração de código ou interpretação: algo de útil ou interessante feito com a linguagem.
+
+### Descrição do nosso CompiladorTask
+
+### Link do Video
+
+### Localidade dos Casos de Uso
+
+### Como extrair uma localidade para colocar em um caso de uso
 
 ### Dependências:
 
@@ -16,14 +31,25 @@ $ mvn compile
 ```
 
 
-### Como executar (Pasta raiz do projeto):
+### Como executar Analisador Lexico e Sintatico:
 
 ```
 $ java -jar ./target/CompiladorTask-1.0-SNAPSHOT-jar-with-dependencies.jar ArquivoDeEntrada ArquivoDeSaida
 ```
 
-### Para executar o corretor automatico do professor Lucredio
+### Como executar Analisador Semantico:
 
 ```
-java -jar corretor-automatico.jar  "java -jar compilador_jar_cronograma.jar" gcc caminho_resultado_casos caminho_absoluto_casos_de_teste "746040,727953,417513" semantico
+$ java -jar ./target/CompiladorTask-1.0-SNAPSHOT-jar-with-dependencies.jar ArquivoDeEntrada ArquivoDeSaida
 ```
+
+### Como executar Gerador de codigo:
+
+```
+$ java -jar ./target/CompiladorTask-1.0-SNAPSHOT-jar-with-dependencies.jar ArquivoDeEntrada ArquivoDeSaida
+```
+
+
+
+
+
