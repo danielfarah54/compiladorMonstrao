@@ -13,6 +13,10 @@ de interesse dos estudantes. O único requisito é que o compilador tenha:
 
 O CompiladorTask tem como objetivo gerar uma pagina HTML com as task da pessoa, ordenadas de acordo a proximidade do evento, categorizadas e ter uma visibilidade mais facil em um site.
 
+### Definição da gramática
+
+[Gramática CronogramaTask](https://github.com/yasuo-00/compiladorMonstrao/blob/main/T4/grammar.pdf)
+
 ### Link do Video
 - [Link do Video privado no Youtube](https://www.google.com)
 
