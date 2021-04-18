@@ -51,9 +51,12 @@ $ mvn compile
 ### Como executar Analisador Lexico e Sintatico, Analisador Semantico, Gerador de codigo:
 
 ```
-$ java -jar ./target/CompiladorTask-1.0-SNAPSHOT-jar-with-dependencies.jar ArquivoDeEntrada ArquivoDeSaida
+$ java -jar ./target/CompiladorTask-1.0-SNAPSHOT-jar-with-dependencies.jar ArquivoDeEntrada
 ```
 
+# Saída
+
+Abrir index.html na pasta /page_files
 
 
 
