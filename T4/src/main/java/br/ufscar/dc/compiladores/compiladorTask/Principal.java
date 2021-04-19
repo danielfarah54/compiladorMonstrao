@@ -11,7 +11,7 @@ import org.antlr.v4.runtime.Token;
 public class Principal {
 
     public static void main(String args[]) {
-        try ( PrintWriter pw = new PrintWriter(new File(args[1]))) {
+        try ( PrintWriter pw = new PrintWriter(new File(args[1]+"index.html"))) {
             
             boolean erroLexico=false;
 
