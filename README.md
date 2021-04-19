@@ -168,12 +168,12 @@ $ mvn compile
 [Executável](https://github.com/yasuo-00/compiladorMonstrao/blob/main/T4/target/CompiladorTask-1.0-SNAPSHOT-jar-with-dependencies.jar)
 
 ```
-$ java -jar ./target/CompiladorTask-1.0-SNAPSHOT-jar-with-dependencies.jar ArquivoDeEntrada
+$ java -jar ./target/CompiladorTask-1.0-SNAPSHOT-jar-with-dependencies.jar ArquivoDeEntrada DiretorioDeSaida
 ```
 
 ### Saída
-
-Abrir index.html na pasta /page_files
+O programa gerará um arquivo "index.html"
+Para abrir o arquivo gerado na formatação ideal, subtituí-lo na pasta T4/page_files
 
 
 
